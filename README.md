@@ -2,10 +2,6 @@ Interface Innovators:
 
 Project Proposal
 
-![](Aspose.Words.7fb9e156-9f92-4717-b0d9-a428cf8c3aa4.001.jpeg)
-
-
-
 |**Team Members** |**Student Number** |
 | - | - |
 |**Shashin Gounden** |u21458686 |
@@ -14,19 +10,14 @@ Project Proposal
 |**Shiluvelo Makhubele** |u19086352 |
 |**Matthew Els** |u21715191 |
 
-University of Pretoria![](Aspose.Words.7fb9e156-9f92-4717-b0d9-a428cf8c3aa4.002.png)
-
-IMY320|PROJECTPROPOSAL 
-
 Contents 
 
-[Theme: Academic Support ..................................................................................................... 3 ](#_page2_x70.00_y71.68)[Key features of the application: ........................................................................................... 3 ](#_page2_x70.00_y278.68)
-
-1. [User Authentication and Profiles: .......................................................................... 3 ](#_page2_x70.00_y323.68)
-1. [Module Selection and Information: ....................................................................... 3 ](#_page2_x70.00_y400.68)
-1. [Advice and Guidance Sections: ............................................................................ 3 ](#_page2_x70.00_y482.68)
-1. [Resource Repository and Materials: ..................................................................... 3 ](#_page2_x70.00_y564.68)
-1. [Group study sessions: .......................................................................................... 3 ](#_page2_x70.00_y646.68)
+[Theme: Academic Support 3 ](#_page2_x70.00_y71.68)[
+Key features of the application: 3 ](#_page2_x70.00_y278.68)
+[User Authentication and Profiles: 3 ](#_page2_x70.00_y323.68)
+[Module Selection and Information: 3 ](#_page2_x70.00_y400.68)
+[Advice and Guidance Sections: 3 ](#_page2_x70.00_y482.68)
+[Resource Repository and Materials: 3 ](#_page2_x70.00_y564.68)[Group study sessions: .......................................................................................... 3 ](#_page2_x70.00_y646.68)
 
 [Functional requirements: ........................................................................................................ 4 ](#_page3_x70.00_y71.68)[R1. User Authentication and Profiles: .............................................................................. 4 ](#_page3_x70.00_y104.68)
 
