@@ -47,7 +47,7 @@ The Group Study Sessions feature offers an inclusive and dynamic online space fo
 
 These functional requirements and key features were decided upon after carrying out our survey and analysing the data, an overview of this analysis can be found at the end of the document, or jump straight to it by[ clicking here. ](#_page12_x70.00_y71.68)
 # <a name="_page4_x70.00_y71.68"></a>Our Brand 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.006.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.006.png)
 
 Our brand is all about student success through innovation and empathy. We create student-centred solutions that enhance their learning        journeys. Our aim is to foster collaboration and promote lifelong learning. We recognize the power of collective learning and facilitate connections among students, encouraging shared insights and mutual growth. We are driven by a deep understanding of the challenges students face in their academic journeys and are dedicated to creating solutions that     empower them to succeed. We're dedicated to making education       accessible, inspiring, and empowering for all students, contributing to    their academic success and personal growth. 
 
@@ -190,22 +190,22 @@ Students will first have to create an account and login to begin using the websi
 # Sketches 
 The following images are our initial ideas/sketches for the website, according to our design choices and features highlighted above. 
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.008.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.008.png)
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.009.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.009.png)
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.010.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.010.png)
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.011.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.011.png)
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.012.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.012.png)
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.013.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.013.png)
 
 # <a name="_page12_x70.00_y71.68"></a>Survey analysis overview 
 **The dataset pertains to Respondents' Academic Specializations or Fields of Study**
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.014.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.014.png)
 
 In this case, the dataset comprised responses from 42 participants across eight distinct degree fields. Among the respondents, BSc Computer Science students constituted the largest segment, accounting for 47.6% of the total. Following closely were BIS Multimedia students, representing 16.7% of the participants, and BSc IKS (Information and Knowledge Systems) students, making up 11.9% of the sample.
 
@@ -213,19 +213,19 @@ The diversity of degree fields suggests a broad representation of academic disci
 
 **The dataset pertains to the frequency with which respondents seek assistance for their work.** 
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.015.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.015.png)
 
 The data indicates that a significant portion of respondents seek academic assistance.       The general trend from the surveyed individuals is that the students of seeking more academic 
 
 **The dataset explores whether respondents desire more assistance with their academic work.** 
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.016.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.016.png)
 
 The data highlights a strong inclination among respondents to seek more assistance with their academic work, with a substantial majority (88.1%) expressing a desire for additional support. Conversely, a      relatively small proportion (11.9%) indicated that they do not wish for more assistance as they feel they already have adequate support. These results underscore the perceived need for increased academic support among the surveyed individuals. 
 
 **The dataset explores the methods that respondents typically initiate the process of seeking help.** 
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.017.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.017.png)
 
 The data indicates a clear preference for initiating the process of seeking academic help online, with a significant majority (78.6%) of respondents favouring this method. In contrast, a smaller proportion (21.4%) indicated a preference for initiating help-seeking in-person. The dominant preference for online initiation suggests that digital platforms and resources play a substantial role in facilitating academic 
 
@@ -233,32 +233,32 @@ assistance.
 
 **The dataset examines the comfort level of respondents when using online platforms.** 
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.018.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.018.png)
 
 The data reveals that a significant majority (88.1%) of respondents reported feeling comfortable using online platforms for their academic needs. None of the respondents indicated discomfort in utilizing     online resources for academic purposes, and only a small proportion (11.9%) expressed a neutral      stance. These results suggest a high degree of acceptance and confidence in using digital platforms for academic tasks.
 
 **The dataset explores the comfort level when seeking help from peers who have already taken the module.**
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.019.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.019.png)
 
 Half of the respondents (50%) expressed a willingness to seek help from peers who have already taken the same module. A substantial proportion (40.5%) remained neutral on this matter, while a smaller    percentage (9.5%) indicated that they would not feel comfortable seeking assistance from such peers. The diversity in the results indicates that respondents have varying opinions regarding their preferred approaches. This shows the importance of incorporating a blend of both peers who have completed the modules and those who are currently enrolled.
 
 
 **The dataset presents respondents' preferences for seeking academic help through various options.** 
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.020.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.020.png)
 
 The data highlights distinct inclinations among respondents in terms of their preferred sources of      academic help. Most respondents indicated a preference for seeking help from past students (88.1%), followed by peers (64.3%). Tutors were preferred by a smaller proportion (38.8%) of respondents. A minority of respondents expressed no preference (11.9%). These results show the significance of peer and past student assistance in the academic support. It's noteworthy that while tutors remain a relevant choice, they were preferred less frequently compared to past students and peers.
 
 **The dataset shows the significance of anonymity to respondents when seeking help online.** 
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.021.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.021.png)
 
 The data reveals a range of attitudes toward the importance of anonymity or privacy while seeking      assistance from peers online. A notable proportion of respondents indicated a high level of importance (59.5% combined). A considerable segment also expressed neutrality (21.4%), while smaller proportions leaned towards valuing anonymity to a lesser extent ("Somewhat" - 9.5%) or not valuing it at all ("Not at all" - 9.5%). These results emphasize the varying degrees to which respondents prioritize anonymity or privacy when seeking help online.
 
 **The dataset explores if respondents' value of a rating or feedback system for peer responses.** 
 
-![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.022.png)
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.022.png)
 
 The data indicates a strong consensus regarding the potential benefits of implementing a rating for     responses. The majority (88.1%) believe such a system would be valuable. A small proportion (4.8%) expressed a neutral stance, while a small fraction (7.1%) indicated that they do not think such a system would be valuable. These findings show a rating mechanism can contribute to enhancing the quality of peer assistance
 # <a name="_page16_x70.00_y438.68"></a>References: 
