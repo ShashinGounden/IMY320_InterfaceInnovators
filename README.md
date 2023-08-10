@@ -53,10 +53,11 @@ Our brand is all about student success through innovation and empathy. We create
 
 Based on the survey, research, and analysis that our team has carried out, the following persona encapsulates the type of students our website aims to cater for: 
 
-**Tony Schnagl** 
-
-*"I want to excel in my studies and manage my coursework efficiently." 
-![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.007.png)*
+## Tony Schnagl
+<div style="clear:both">
+    <img src="/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.007.png" alt="Tony Schnagl" />
+</div>
+"I want to excel in my studies and manage my coursework efficiently."
 
 **Key goals:** 
 
