@@ -55,7 +55,8 @@ Based on the survey, research, and analysis that our team has carried out, the f
 
 **Tony Schnagl** 
 
-*"I want to excel in my studies and manage my coursework efficiently." ![](Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.007.png)*
+*"I want to excel in my studies and manage my coursework efficiently." 
+![](/Documentation/Images/Aspose.Words.27365739-b6e0-4e6a-ba0b-3e239b8995cc.007.png)*
 
 **Key goals:** 
 
