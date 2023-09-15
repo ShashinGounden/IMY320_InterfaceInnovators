@@ -152,21 +152,21 @@ a {
     margin-inline: 1rem;
   }
 
-  .home__title {
+  .home_title {
     font-size: 1.75rem;
   }
 }
 
 /* For taller devices */
 @media screen and (min-width: 376px) and (min-height: 800px) {
-  .home__container {
+  .home_container {
     padding-top: 10rem;
   }
 }
 
 /* For medium devices */
 @media screen and (min-width: 576px) {
-  .home__container {
+  .home_container {
     grid-template-columns: 400px;
     justify-content: center;
   }
