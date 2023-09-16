@@ -98,7 +98,7 @@ img {
   align-items: center;
 }
 
-.logo,
+
 .logo {
   color: var(--text-color);
   column-gap: .5rem;
@@ -156,10 +156,28 @@ img {
   font-weight: var(--font-semi-bold);
 }
 
+.logo, 
+.nav_toggle, 
+.nav_close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .nav_close {
   position: absolute;
   top: .75rem;
   right: 1.5rem;
+}
+
+.nav_toggle, 
+.nav_close {
+  border-radius: 50%;
+  font-size: 1.25rem;
+  background-color: var(--first-color-alt);
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
 }
 
 /* Show menu */
