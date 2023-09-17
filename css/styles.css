@@ -427,10 +427,8 @@ img {
   color: var(--title-color);
 }
 
-.resources_section
-{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-}
+/* styles-resources.css */
+/* Add your custom styles here for the resources section */
+/* styles-resources.css */
+
+

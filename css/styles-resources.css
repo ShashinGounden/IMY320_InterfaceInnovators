@@ -1,0 +1,115 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+body {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    background-color: var(--body-color);
+    color: var(--text-color);
+  }
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(268, 58%, 48%);
+  --first-color-alt: hsl(268, 28%, 38%);
+  --second-color: hsl(335, 88%, 56%);
+  --second-color-alt: hsl(328, 78%, 38%);
+  --title-color: hsl(0, 0%, 100%);
+  --text-color: hsl(252, 100%, 87%);
+  --body-color: hsl(268, 58%, 22%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --biggest-font-size: 2rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1152px) {
+  :root {
+    --biggest-font-size: 4rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+.module-heading {
+    color: var( --text-color);
+    font-size: 24px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Container for the cards */
+  .card-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  /* Style for individual cards */
+  .card {
+    flex-basis: calc(33.33% - 20px); /* Adjust the width of cards as needed */
+    opacity: 80%;
+    background-color: var(--first-color-alt);
+    border-radius: 5px;
+    padding: 20px;
+    margin-right: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    height: 350px;
+    width: 350px;
+    color: var( --title-color);
+  }
+  
+  /* Add some hover effect to cards */
+  .card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Clearfix to prevent card container from collapsing */
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .card_titles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .module_container{
+    width: 80%;
+    height: 80%;
+  }
+
+  .resources_container{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+
+
