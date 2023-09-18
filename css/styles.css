@@ -212,6 +212,7 @@ img {
   font-size: var(--small-font-size);
   margin-bottom: .5rem;
   letter-spacing: 1px;
+   animation: slideIn 0.5s ease forwards;
 }
 
 .home_title {
@@ -220,6 +221,7 @@ img {
   margin: 0 auto .75rem;
   font-size: var(--biggest-font-size);
   color: var(--title-color);
+  animation: slideIn 0.5s ease forwards;
 }
 
 .home_title img {
@@ -232,11 +234,13 @@ img {
 .home_title span {
   position: relative;
   z-index: 5;
+  animation: slideIn 0.5s ease forwards;
 }
 
 .home_description {
   line-height: 150%;
   margin-bottom: 1.25rem;
+  animation: slideIn 0.5s ease forwards;
 }
 
 .home_button {
@@ -461,7 +465,7 @@ img {
 /* styles-resources.css */
 @keyframes slideIn {
   from {
-    transform: translateX(-100%);
+    transform: translateY(100%);
     opacity: 0;
   }
   to {
