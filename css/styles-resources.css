@@ -142,7 +142,17 @@ a{
   display: block;
 }
 
+h3{
+  padding-bottom: 10px;
+}
 
+.file_list{
+  padding: 5px;
+}
+
+.file_list:hover{
+  color: var(--title-color);
+}
 
 
 
