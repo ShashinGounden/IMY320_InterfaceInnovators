@@ -5,18 +5,59 @@
       <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-      <title>Signup</title>
+      <title>Login</title>
       <link rel="icon" type="image/x-icon" href="../favicon.png">
    </head>
+
    <body>
-      <div class="mainSign">
-         <p class="sign" align="center">Sign up</p>
-         <form class="form1">
-            <input class="un " type="text" align="center" placeholder="Username">
-            <input class="pass" type="password" align="center" placeholder="Password">
-            <input class="pass" type="password" align="center" placeholder="Confirm password">
-            <a class="submit" align="center">Sign up</a>
-            <p class="forgot" align="center"><a href="./login.html">Already have an account? Login here</p>         
-      </div>
+      <header class="header" id="header">
+         <nav class="nav container">
+            <a href="../index.html" class="logo">
+                <i class="ri-school-line"></i> Study Sphere
+            </a>
+
+            <div class="nav_bar" id="nav-menu">
+               <ul class="nav_content_list">
+                  <li class="nav_item">
+                     <a href="../GuestPages/home.html" class="nav_button_normal">Home</a>
+                  </li>
+
+                  <li class="nav_item">
+                     <a href="../GuestPages/resources.html" class="nav_button_normal">Resources and Materials</a>
+                  </li>
+
+                  <li class="nav_item">
+                     <a href="../GuestPages/studyhelp.html" class="nav_button_normal">Study Help</a>
+                  </li>
+               </ul>
+         
+               <a href="../Auth/login.html" class="nav_button">Login</a>
+         </nav>
+      </header>
+      <main class="main">
+         <section class="home">
+            <div class="home_container container">
+               <div class="mainSign">
+                  <p class="sign" align="center">Sign up</p>
+                  <form class="form1">
+                     <input class="un " type="text" align="center" placeholder="Username">
+                     <input class="pass" type="password" align="center" placeholder="Password">
+                     <input class="pass" type="password" align="center" placeholder="Confirm password">
+                     <a class="submit" align="center">Sign up</a>
+                     <p class="forgot" align="center"><a href="./login.html">Already have an account? Login here</p>         
+               </div>
+ 
+               <div class="home_images">
+                <img src="../../images/points-space.svg" alt="image" class="home_points">
+                <img src="../../images/planet.svg" alt="image" class="home_planet-2">
+                <img src="../../images/planet.svg" alt="image" class="home_planet-1">
+                <img src="../../images/rocket.svg" alt="image" class="home_rocket">
+             </div>
+          </div>
+          
+          <img src="../../images/clouds-1.svg" alt="image" class="home_cloud-1">
+          <img src="../../images/clouds-2.svg" alt="image" class="home_cloud-2">
+         </section>
+      
    </body>
 </html>
