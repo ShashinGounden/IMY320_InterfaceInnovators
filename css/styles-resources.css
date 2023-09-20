@@ -223,7 +223,7 @@ h3{
 
 .scrollable-content {
   overflow-y: auto; /* Enable vertical scrolling for the cards */
-  height: calc(100vh + var(--header-height)); /* Set the height to fill the viewport */
+  height: calc(100vh + var(--header-height) - 10px); /* Set the height to fill the viewport */
   position: relative; /* Make sure the background images stay relative to this container */
 }
 
