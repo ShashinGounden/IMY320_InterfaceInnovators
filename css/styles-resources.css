@@ -67,7 +67,7 @@ body {
   /* Style for individual cards */
   .card {
     flex-basis: calc(33.33% - 20px); /* Adjust the width of cards as needed */
-    opacity: 80%;
+    opacity: 85%;
     background-color: var(--first-color-alt);
     border-radius: 5px;
     padding: 20px;
