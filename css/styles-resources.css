@@ -111,7 +111,7 @@ body {
     flex-direction: column;
     animation: slideIn 0.5s ease forwards;
     position: absolute;
-    width: 100vw;
+    width: 100%;
   }
 
 a{
@@ -158,13 +158,13 @@ h3{
 }
 
 .home_images {
-  position: fixed; /* Change from relative to fixed */
+  position: fixed; /* Fix the position of the background images */
   display: flex;
   justify-content: center;
-  height: 250px;
+  height: 100vh;
   animation: slideIn 0.5s ease forwards;
   z-index: -1;
-  top: 0; /* Stick the images to the top of the viewport */
+  top: 5%; /* Stick the images to the top of the viewport */
   left: 0; /* Optionally, you can adjust the left position */
 }
 
@@ -219,6 +219,12 @@ h3{
   right: 0;
   top: -1.25rem;
   animation: slideIn 0.5s ease forwards;
+}
+
+.scrollable-content {
+  overflow-y: auto; /* Enable vertical scrolling for the cards */
+  height: calc(100vh + var(--header-height)); /* Set the height to fill the viewport */
+  position: relative; /* Make sure the background images stay relative to this container */
 }
 
 
