@@ -560,7 +560,7 @@ img {
     background-color: rgb(99, 39, 120);
     color: white; /* Set the text color to white or any other contrasting color */
     border-radius: 50%; /* Optional: Add a border radius to make it circular */
-    padding: 5px; /* Optional: Add padding for spacing */
+    /*padding: 5px; /* Optional: Add padding for spacing */
 }
 
 /* Style the container with a purple background */
@@ -597,8 +597,13 @@ img {
 }
 .custom-rounded {
     border-radius: 40px; /* Adjust the value as needed to control the roundness */
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.9);
   }
+
+  .bg-white {
+    background-color: rgba(255, 255, 255, 0.9); /* Adjust the alpha value (0.8 in this example) */
+}
+
 
 
 
