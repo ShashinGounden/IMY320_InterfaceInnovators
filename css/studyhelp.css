@@ -70,44 +70,46 @@ button#submit-comment:hover {
     text-align: left;
 }
 
-
 .comment {
-    padding: 10px;
-    margin: 20px 0;
-    opacity: 85%;
-    background-color: var(--first-color-alt);
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px; /* Adjust the margin */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
-    height: 150px;
-    width: 90%; /* Calculate the width for three cards in a row */
-    color: var(--title-color);
-    text-align: center;
-    border: none;
+  padding: 10px;
+  margin: 20px 0;
+  opacity: 85%;
+  background-color: var(--first-color-alt);
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px; /* Adjust the margin */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  height: auto; /* Adjust height to accommodate content */
+  width: 100%; /* Calculate the width for three cards in a row */
+  color: var(--title-color);
+  text-align: center;
+  border: none;
+  display: flex; /* Add display flex to arrange content horizontally */
+  align-items: center; /* Center content vertically */
+  justify-content: space-between; /* Add space between title and votes */
 }
 
 .comment-title {
-    font-weight: bold;
-    font-size: 1.2rem;
-    margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
 }
 
 .comment-text {
-    font-size: 1rem;
-    margin-bottom: 10px;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
 .comment .upvote,
 .comment .downvote {
-    margin-right: 10px;
-    cursor: pointer;
+  margin-right: 10px;
+  cursor: pointer;
 }
 
 .comment-votes {
-    font-size: 0.9rem;
-    color: var(--second-color);
+  font-size: 0.9rem;
+  color: var(--second-color);
 }
 
 .course-card {

@@ -14,8 +14,10 @@ function renderComments() {
         const commentElement = document.createElement("div");
         commentElement.classList.add("comment");
         commentElement.innerHTML = `
-            <div class="comment-title">Comment Title ${index + 1}</div>
-            <div class="comment-text">${comment.text}</div>
+            <div class="comment-card">
+                <div class="comment-title">Comment Title ${index + 1}</div>
+                <div class="comment-text">${comment.text}</div>
+            </div>
             <div class="comment-votes">
                 <span class="upvote" onclick="upvoteComment(${index})">Upvote (${comment.upvotes})</span>
                 <span class="downvote" onclick="downvoteComment(${index})">Downvote (${comment.downvotes})</span>
