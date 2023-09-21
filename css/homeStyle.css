@@ -549,4 +549,27 @@ img {
 .nav_button_normal:hover {
     color: var(--title-color);
 }
+.scrollable-card-container {
+    max-height: 400px; /* Set the desired maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrollbar when content exceeds the container height */
+    /* Optionally, you can also set other styles like padding, margin, or background-color */
+}
+
+#search-addon i.fas.fa-search {
+    background-color: rgb(99, 39, 120);
+    color: white; /* Set the text color to white or any other contrasting color */
+    border-radius: 50%; /* Optional: Add a border radius to make it circular */
+    padding: 5px; /* Optional: Add padding for spacing */
+}
+
+/* Style the container with a purple background */
+.bg-purple {
+    background-color: rgb(99, 39, 120); /* Use your desired purple color */
+}
+
+/* Style the search icon */
+#search-addon .fas.fa-search {
+    color: white; /* Set the text color to white or any other contrasting color */
+}
+
 
