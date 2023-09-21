@@ -34,9 +34,14 @@
 }
 
 
+.help-container{
+  animation: slideIn 0.5s ease forwards;
+}
+
 .study-help {
     text-align: center;
     padding: 20px;
+    
 }
 
 .comment-form {
@@ -221,6 +226,18 @@ button#submit-comment:hover {
   right: 0;
   z-index: -1;
 }
+
+@keyframes slideIn {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 
 
 
