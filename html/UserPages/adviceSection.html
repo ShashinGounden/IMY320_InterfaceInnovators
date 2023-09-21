@@ -33,9 +33,21 @@
         </nav>
 
 
+
         <main class="main">
             <section class="study-help">
-                <h2>Trending Advice for IMY 320</h2>
+
+        <div class="home_images">
+            <img src="../../images/points-space.svg" alt="image" class="home_points">
+            <img src="../../images/planet.svg" alt="image" class="home_planet-2">
+            <img src="../../images/planet.svg" alt="image" class="home_planet-1">
+           
+         </div>
+                <div class="title_rocket">
+                    <img src="../../images/rocket.svg" alt="image" class="home_rocket">
+                    <h2>Trending Advice for IMY 320</h2>
+                </div>
+                
                 <div class="comments-list">
                     <!-- Comments will be dynamically added here -->
                 </div>
@@ -46,8 +58,14 @@
 
         // Dummy data for comments (replace with your own logic to fetch comments from a server)
         const commentsData = [
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2 },
-            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1 },
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1"},
+            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 2" },
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1"},
+            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 2" },
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1"},
+            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 2" },
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1"},
+            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 2" },
         ];
         
         function renderComments() {
@@ -180,5 +198,10 @@
         <div class="add-comment-button">
             <i class="fas fa-plus"></i>
         </div>
+
+        
+      
+      <img src="../../images/clouds-1.svg" alt="image" class="home_cloud-1">
+      <img src="../../images/clouds-2.svg" alt="image" class="home_cloud-2">
 </body>
 </html>
