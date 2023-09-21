@@ -551,7 +551,8 @@ img {
 }
 .scrollable-card-container {
     max-height: 400px; /* Set the desired maximum height for the container */
-    overflow-y: auto; /* Enable vertical scrollbar when content exceeds the container height */
+    overflow-y: auto; 
+    padding: 10px;/* Enable vertical scrollbar when content exceeds the container height */
     /* Optionally, you can also set other styles like padding, margin, or background-color */
 }
 
@@ -571,5 +572,33 @@ img {
 #search-addon .fas.fa-search {
     color: white; /* Set the text color to white or any other contrasting color */
 }
+
+.cloud-image {
+    position: absolute;
+    top: 50%; /* Adjust this value to move the image down */
+    left: 0;
+    z-index: -1; /* Place behind the container */
+    transform: translateY(-50%); /* Center vertically */
+    animation: slideIn 0.5s ease forwards;
+}
+
+.space-image {
+    position: absolute;
+    top: 50%; /* Adjust this value to move the image down */
+    left: 0;
+    z-index: -1; /* Place behind the container */
+    transform: translateY(-50%); /* Center vertically */
+    animation: slideIn 0.5s ease forwards;
+}
+
+.form-control::placeholder {
+    color: #888; /* You can adjust the color to your preferred shade of gray */
+}
+.custom-rounded {
+    border-radius: 40px; /* Adjust the value as needed to control the roundness */
+  }
+
+
+
 
 
