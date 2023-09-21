@@ -43,7 +43,7 @@
     margin-bottom: 20px;
 }
 
-textarea {
+textarea#comment-text {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -53,32 +53,53 @@ textarea {
 
 button#submit-comment {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--first-color);
+    color: var(--title-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button#submit-comment:hover {
-    background-color: #0056b3;
+    background-color: var(--first-color-alt);
 }
+
 
 .comments-list {
     text-align: left;
 }
 
+
 .comment {
-    margin: 10px 0;
-    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.comment-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.comment-text {
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
 .comment .upvote,
 .comment .downvote {
     margin-right: 10px;
     cursor: pointer;
+}
+
+.comment-votes {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #555;
 }
 
 .course-card {
@@ -109,4 +130,67 @@ button#submit-comment:hover {
     margin-left: 50px;
 }
 
+
+.home_images {
+    display: flex;
+    justify-content: center;
+    animation: slideIn 0.5s ease forwards;
+    z-index: -1;
+    top: 20%; /* Stick the images to the top of the viewport */
+    left: 0; /* Optionally, you can adjust the left position */
+  }
+
+  .home_images img {
+    position: absolute;
+    animation: slideIn 0.5s ease forwards;
+  }
+
+  .home_points {
+    width: 320px;
+    top: -1rem;
+    animation: slideIn 0.5s ease forwards;
+  }
+
+  .home_rocket {
+    width: 220px;
+    animation: slideIn 0.5s ease forwards;
+  }
+
+  .home_planet-1 {
+    width: 110px;
+    top: 1.25rem;
+    left: .75rem;
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  .home_planet-2 {
+    width: 70px;
+    right: 0;
+    top: -1.25rem;
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  
+  .home_cloud-1{
+    z-index: -1;
+  }
+  
+  .home_cloud-2{
+    z-index: -1;
+  }
+  
+  .home_planet-1 {
+    width: 110px;
+    top: 1.25rem;
+    left: .75rem;
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  .home_planet-2 {
+    width: 70px;
+    right: 0;
+    top: -1.25rem;
+    animation: slideIn 0.5s ease forwards;
+  }
+  
 

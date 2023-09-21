@@ -32,21 +32,38 @@
         </nav>
 
 
-    <main class="main">
-        <section class="study-help">
-            <h1>Welcome to the advice section</h1>
-            <div class="comment-section">
-                <h2>Comments</h2>
-                <div class="comment-form">
-                    <textarea id="comment-text" placeholder="Add your comment"></textarea>
-                    <button id="submit-comment">Submit</button>
+        <main class="main">
+            <section class="study-help">
+                <h1>Welcome to the advice section</h1>
+                <div class="comment-section">
+                    <h2>Comments</h2>
+                    <div class="comment-form">
+                        <textarea id="comment-text" placeholder="Add your comment"></textarea>
+                        <button id="submit-comment">Submit</button>
+                    </div>
+                    <div class="comments-list">
+                        <!-- Comments will be dynamically added here -->
+                        <div class="comment">
+                            <div class="comment-title">Comment Title 1</div>
+                            <div class="comment-text">This is the comment text for Comment 1. It can be longer if needed.</div>
+                            <div class="comment-votes">
+                                <span>Upvotes: 5</span>
+                                <span>Downvotes: 2</span>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <div class="comment-title">Comment Title 2</div>
+                            <div class="comment-text">This is the comment text for Comment 2.</div>
+                            <div class="comment-votes">
+                                <span>Upvotes: 3</span>
+                                <span>Downvotes: 1</span>
+                            </div>
+                        </div>
+                        <!-- Add more comments here -->
+                    </div>
                 </div>
-                <div class="comments-list">
-                    <!-- Comments will be dynamically added here -->
-                </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
     <script src="../../javascript/studyhelp.js"></script> <!-- Create a JavaScript file for interaction -->
 </body>
