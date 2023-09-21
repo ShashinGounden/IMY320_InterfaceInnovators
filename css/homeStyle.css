@@ -575,11 +575,12 @@ img {
 
 .cloud-image {
     position: absolute;
-    top: 50%; /* Adjust this value to move the image down */
+    /*top: 50%; /* Adjust this value to move the image down */
     left: 0;
     z-index: -1; /* Place behind the container */
     transform: translateY(-50%); /* Center vertically */
     animation: slideIn 0.5s ease forwards;
+    bottom:0%;
 }
 
 .space-image {
