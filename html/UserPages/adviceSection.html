@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../../css/studyhelp.css"> <!-- Create a CSS file for your study help page styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <title>Study Help</title>
     <link rel="icon" type="image/x-icon" href="../favicon.png">
@@ -34,22 +35,120 @@
 
         <main class="main">
             <section class="study-help">
-                <h1>Welcome to the advice section</h1>
-                <div class="comment-section">
-                    <div class="comment-form-container">
-                    <h2>Add advice</h2>
-                    <div class="comment-form">
-                        <textarea id="comment-text" placeholder="Add your advice to help others..."></textarea>
-                        <button id="submit-comment">Submit</button>
-                    </div>
-                </div>
-                    <div class="comments-list">
-                        <!-- Comments will be dynamically added here -->
-                    </div>
+                <h2>Trending Advice for IMY 320</h2>
+                <div class="comments-list">
+                    <!-- Comments will be dynamically added here -->
                 </div>
             </section>
         </main>
 
-    <script src="../../javascript/studyhelp.js"></script> <!-- Create a JavaScript file for interaction -->
+    <script>// JavaScript for interacting with comments
+
+        // Dummy data for comments (replace with your own logic to fetch comments from a server)
+        const commentsData = [
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2 },
+            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1 },
+        ];
+        
+        function renderComments() {
+            const commentsList = document.querySelector(".comments-list");
+            commentsList.innerHTML = ""; // Clear the existing comments
+        
+            commentsData.forEach((comment, index) => {
+                const commentElement = document.createElement("div");
+                commentElement.classList.add("comment");
+                commentElement.innerHTML = `
+                    <div class="comment-card">
+                        <div class="comment-title">Comment Title ${index + 1}</div>
+                        <div class="comment-text">${comment.text}</div>
+                    </div>
+
+                    <div class="comment-votes">
+    <span class="upvote" onclick="upvoteComment(${index})"><i class="fas fa-arrow-up"> Upvote</i> (${comment.upvotes})</span>
+    <br />
+    <br />
+    <span class="downvote" onclick="downvoteComment(${index})"><i class="fas fa-arrow-down"> Downvote</i> (${comment.downvotes})</span>
+</div>
+                `;
+        
+                commentsList.appendChild(commentElement);
+            });
+        }
+        
+        function upvoteComment(index) {
+            commentsData[index].upvotes++;
+            renderComments();
+        }
+        
+        function downvoteComment(index) {
+            commentsData[index].downvotes++;
+            renderComments();
+        }
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            renderComments();
+        
+            const submitButton = document.getElementById("submit-comment");
+            const commentText = document.getElementById("comment-text");
+        
+            submitButton.addEventListener("click", (event) => {
+                event.preventDefault(); // Prevent form submission
+        
+                const newCommentText = commentText.value.trim();
+                if (newCommentText !== "") {
+                    commentsData.push({ text: newCommentText, upvotes: 0, downvotes: 0 });
+                    commentText.value = ""; // Clear the input field
+                    renderComments();
+                }
+            });
+
+            const addCommentButton = document.querySelector(".add-comment-button");
+    const commentModal = document.getElementById("commentModal");
+    const closeBtn = document.querySelector(".close");
+    
+    addCommentButton.addEventListener("click", () => {
+        commentModal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+        commentModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target == commentModal) {
+            commentModal.style.display = "none";
+        }
+    });
+
+    addCommentButton.addEventListener("click", () => {
+        commentModal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+        commentModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target == commentModal) {
+            commentModal.style.display = "none";
+        }
+    });
+
+        });
+        </script> <!-- Create a JavaScript file for interaction -->
+        <div id="commentModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add a Comment</h2>
+                <form id="comment-form" class="comment-form">
+                    <textarea id="comment-text" placeholder="Write your comment here..." required></textarea>
+                    <button id="submit-comment" type="submit">Post Comment</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="add-comment-button">
+            <i class="fas fa-plus"></i>
+        </div>
 </body>
 </html>
