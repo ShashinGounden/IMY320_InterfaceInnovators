@@ -38,16 +38,23 @@
 
         </nav>
 
+        <div class="home_images">
+            <img src="../../images/points-space.svg" alt="image" class="home_points">
+            <img src="../../images/planet.svg" alt="image" class="home_planet-2 fixed-image">
+            <img src="../../images/planet.svg" alt="image" class="home_planet-1 fixed-image">
+        </div>
 
-    <main class="main">
+
+        
         <section class="help-container">
             <div class="course-list">
                 <!-- Course Cards -->
             </div>
         </section>
 
+
        
-    </main>
+        
 
     <script>
         // Mock course data
@@ -67,56 +74,67 @@
         ];
 
         // Function to create and populate course cards
-        function populateCourseCards() {
-            const courseList = document.querySelector(".course-list");
+       // Function to create and populate course cards
+function populateCourseCards() {
+    const courseList = document.querySelector(".course-list");
 
-            courseData.forEach(course => {
-                const card = document.createElement("div");
-                card.classList.add("course-card");
-                card.setAttribute("data-course", course.name);
+    courseData.forEach(course => {
+        const card = document.createElement("div");
+        card.classList.add("course-card");
+        card.setAttribute("data-course", course.name);
 
-                const h2 = document.createElement("h2");
-                h2.textContent = course.name;
+        const h2 = document.createElement("h2");
+        h2.textContent = course.name;
 
-                const br1 = document.createElement("br"); // Add a line break after the course title
+        const br1 = document.createElement("br"); // Add a line break after the course title
 
-                const adviceTitle = document.createElement("p");
-                adviceTitle.textContent = "Top Advice:";
-                adviceTitle.classList.add("advice-title"); // Add a class for styling
+        const adviceTitle = document.createElement("p");
+        adviceTitle.textContent = "Trending Advice:";
+        adviceTitle.classList.add("advice-title"); // Add a class for styling
 
-                const br2 = document.createElement("br"); // Add a line break after the "Top Advice:" title
+        const br2 = document.createElement("br"); // Add a line break after the "Top Advice:" title
 
-                const adviceList = document.createElement("ul"); // Use an ordered list for numbered advice
-                course.advice.forEach((advice, index) => {
-                    const li = document.createElement("li");
-                    li.textContent = `${index + 1}. ${advice}`; // Prepend advice with the number
-                    adviceList.appendChild(li);
-                });
+        const adviceList = document.createElement("ul"); // Use an ordered list for numbered advice
+        course.advice.forEach((advice, index) => {
+            const li = document.createElement("li");
+            li.textContent = `${index + 1}. ${advice}`; // Prepend advice with the number
+            adviceList.appendChild(li);
+            li.style.padding = "5px"; // Adjust the margin as needed
+        });
 
-                const clickForMore = document.createElement("p");
-                clickForMore.textContent = "Click for more →"  ; // Add "click for more" text with an arrow
-                clickForMore.classList.add("click-for-more"); // Apply styling to the link
+        // Add padding/margin between advice list items (li elements)
+        
 
-                card.appendChild(h2);
-                card.appendChild(br1); // Add a line break after the course title
-                card.appendChild(adviceTitle); // Add the advice title
-                card.appendChild(br2); // Add a line break after the "Top Advice:" title
-                card.appendChild(adviceList);
-                card.appendChild(clickForMore); // Add "click for more" text
+        const clickForMore = document.createElement("p");
+        clickForMore.textContent = "Click for more →"; // Add "click for more" text with an arrow
+        clickForMore.classList.add("click-for-more"); // Apply styling to the link
 
-                card.addEventListener("click", () => {
-                    // Redirect to adviceSection.html with the course name as a query parameter
-                    window.location.href = `adviceSection.html?course=${encodeURIComponent(course.name)}`;
-                });
+        card.appendChild(h2);
+        card.appendChild(br1); // Add a line break after the course title
+        card.appendChild(adviceTitle); // Add the advice title
+        card.appendChild(br2); // Add a line break after the "Top Advice:" title
+        card.appendChild(adviceList);
+        card.appendChild(clickForMore); // Add "click for more" text
 
-                courseList.appendChild(card);
-            });
-        }
+        card.addEventListener("click", () => {
+            // Redirect to adviceSection.html with the course name as a query parameter
+            window.location.href = `adviceSection.html?course=${encodeURIComponent(course.name)}`;
+        });
+
+        courseList.appendChild(card);
+    });
+}
+
 
         // Call the function to populate course cards
         populateCourseCards();
     </script>
 
 
+   
+    <img src="../../images/clouds-1.svg" alt="image" class="home_cloud-1">
+    <img src="../../images/clouds-2.svg" alt="image" class="home_cloud-2">
+
+</div>
 </body>
 </html>
