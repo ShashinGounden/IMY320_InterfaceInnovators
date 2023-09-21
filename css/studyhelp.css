@@ -238,6 +238,14 @@ button#submit-comment:hover {
   }
 }
 
+li{
+  color: var(--text-color);
+}
+
+li:hover{
+  color: var(--title-color);
+  cursor: pointer;
+}
 
 
 
