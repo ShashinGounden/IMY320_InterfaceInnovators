@@ -8,15 +8,7 @@
 
     <title>Study help</title>
     <link rel="icon" type="image/x-icon" href="../favicon.png">
-    <style>
-        /* Add your card styles here */
-        .course-card {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            cursor: pointer;
-        }
-    </style>
+   
 </head>
 <body>
     
@@ -51,57 +43,6 @@
         <section class="help-container">
             <div class="course-list">
                 <!-- Course Cards -->
-                <div class="course-card" data-course="Math">
-                    <h2>Math</h2>
-                    <br />
-                    <p>Top Advice: </p>
-                    <p>1. Exam Chapters to skip &#x2192;</p>
-                    <p>2. Semester Test 1 focus &#x2192;</p>
-                    <p>3. Unimportant chapters &#x2192;</p>
-                </div>
-
-                <div class="course-card" data-course="Science">
-                    <h2>Science</h2>
-                    <p>Click to get advice on studying Science.</p>
-                </div>
-
-                <div class="course-card" data-course="History">
-                    <h2>History</h2>
-                    <p>Click to get advice on studying History.</p>
-                </div>
-
-                <!-- Add more course cards here -->
-                <div class="course-card" data-course="Math">
-                  <h2>Math</h2>
-                  <p>Click to get advice on studying Math.</p>
-              </div>
-
-              <div class="course-card" data-course="Science">
-                  <h2>Science</h2>
-                  <p>Click to get advice on studying Science.</p>
-              </div>
-
-              <div class="course-card" data-course="History">
-                  <h2>History</h2>
-                  <p>Click to get advice on studying History.</p>
-              </div>
-
-               <!-- Add more course cards here -->
-               <div class="course-card" data-course="Math">
-                  <h2>Math</h2>
-                  <p>Click to get advice on studying Math.</p>
-              </div>
-
-              <div class="course-card" data-course="Science">
-                  <h2>Science</h2>
-                  <p>Click to get advice on studying Science.</p>
-              </div>
-
-              <div class="course-card" data-course="History">
-                  <h2>History</h2>
-                  <p>Click to get advice on studying History.</p>
-              </div>
-
             </div>
         </section>
 
@@ -109,16 +50,73 @@
     </main>
 
     <script>
-      // JavaScript to handle card click events
-      const courseCards = document.querySelectorAll(".course-card");
-  
-      courseCards.forEach(card => {
-          card.addEventListener("click", () => {
-              const courseName = card.getAttribute("data-course");
-              // Redirect to adviceSection.html with the course name as a query parameter
-              window.location.href = `adviceSection.html?course=${encodeURIComponent(courseName)}`;
-          });
-      });
-  </script>
+        // Mock course data
+        const courseData = [
+            { name: "IMY 320", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
+            { name: "COS 301", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
+            { name: "COS 333", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
+            // Add more course data here
+            { name: "IMY 320", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
+            { name: "COS 301", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
+            { name: "COS 333", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
+
+            { name: "IMY 320", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
+            { name: "COS 301", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
+            { name: "COS 333", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
+            
+        ];
+
+        // Function to create and populate course cards
+        function populateCourseCards() {
+            const courseList = document.querySelector(".course-list");
+
+            courseData.forEach(course => {
+                const card = document.createElement("div");
+                card.classList.add("course-card");
+                card.setAttribute("data-course", course.name);
+
+                const h2 = document.createElement("h2");
+                h2.textContent = course.name;
+
+                const br1 = document.createElement("br"); // Add a line break after the course title
+
+                const adviceTitle = document.createElement("p");
+                adviceTitle.textContent = "Top Advice:";
+                adviceTitle.classList.add("advice-title"); // Add a class for styling
+
+                const br2 = document.createElement("br"); // Add a line break after the "Top Advice:" title
+
+                const adviceList = document.createElement("ul"); // Use an ordered list for numbered advice
+                course.advice.forEach((advice, index) => {
+                    const li = document.createElement("li");
+                    li.textContent = `${index + 1}. ${advice}`; // Prepend advice with the number
+                    adviceList.appendChild(li);
+                });
+
+                const clickForMore = document.createElement("p");
+                clickForMore.textContent = "Click for more →"  ; // Add "click for more" text with an arrow
+                clickForMore.classList.add("click-for-more"); // Apply styling to the link
+
+                card.appendChild(h2);
+                card.appendChild(br1); // Add a line break after the course title
+                card.appendChild(adviceTitle); // Add the advice title
+                card.appendChild(br2); // Add a line break after the "Top Advice:" title
+                card.appendChild(adviceList);
+                card.appendChild(clickForMore); // Add "click for more" text
+
+                card.addEventListener("click", () => {
+                    // Redirect to adviceSection.html with the course name as a query parameter
+                    window.location.href = `adviceSection.html?course=${encodeURIComponent(course.name)}`;
+                });
+
+                courseList.appendChild(card);
+            });
+        }
+
+        // Call the function to populate course cards
+        populateCourseCards();
+    </script>
+
+
 </body>
 </html>

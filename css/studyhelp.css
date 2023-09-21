@@ -113,7 +113,7 @@ button#submit-comment:hover {
 }
 
 .course-card {
-    opacity: 85%;
+    opacity: 0.8;
     background-color: var(--first-color-alt);
     border-radius: 5px;
     padding: 20px;
@@ -125,6 +125,8 @@ button#submit-comment:hover {
     color: var(--title-color);
     text-align: center;
     border: none;
+    position: relative;
+    
 }
 
 .course-card:hover{
@@ -141,67 +143,7 @@ button#submit-comment:hover {
 }
 
 
-.home_images {
-    display: flex;
-    justify-content: center;
-    animation: slideIn 0.5s ease forwards;
-    z-index: -1;
-    top: 20%; /* Stick the images to the top of the viewport */
-    left: 0; /* Optionally, you can adjust the left position */
-  }
 
-  .home_images img {
-    position: absolute;
-    animation: slideIn 0.5s ease forwards;
-  }
-
-  .home_points {
-    width: 320px;
-    top: -1rem;
-    animation: slideIn 0.5s ease forwards;
-  }
-
-  .home_rocket {
-    width: 220px;
-    animation: slideIn 0.5s ease forwards;
-  }
-
-  .home_planet-1 {
-    width: 110px;
-    top: 1.25rem;
-    left: .75rem;
-    animation: slideIn 0.5s ease forwards;
-  }
-  
-  .home_planet-2 {
-    width: 70px;
-    right: 0;
-    top: -1.25rem;
-    animation: slideIn 0.5s ease forwards;
-  }
-  
-  
-  .home_cloud-1{
-    z-index: -1;
-  }
-  
-  .home_cloud-2{
-    z-index: -1;
-  }
-  
-  .home_planet-1 {
-    width: 110px;
-    top: 1.25rem;
-    left: .75rem;
-    animation: slideIn 0.5s ease forwards;
-  }
-  
-  .home_planet-2 {
-    width: 70px;
-    right: 0;
-    top: -1.25rem;
-    animation: slideIn 0.5s ease forwards;
-  }
 
   .comment-form-container {
     background-color: var(--first-color-alt);
@@ -215,12 +157,25 @@ button#submit-comment:hover {
     flex-direction: column;
 }
 
-
-
 .comment-form {
   
   width: 100%;
 }
+
+.click-for-more {
+  position: absolute;
+  bottom: 15px;
+  right: 20px;
+  font-size: 14px;
+  color: var(--text-color); /* Blue color for the link text */
+  cursor: pointer;
+}
+
+.click-for-more:hover{
+  color: var(--title-color);
+}
+
+
 
   
 
