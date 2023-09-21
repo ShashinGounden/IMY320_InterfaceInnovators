@@ -72,10 +72,20 @@ button#submit-comment:hover {
 
 
 .comment {
-    border: 1px solid #ccc;
-    border-radius: 5px;
     padding: 10px;
-    margin: 10px 0;
+    margin: 20px 0;
+    opacity: 85%;
+    background-color: var(--first-color-alt);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px; /* Adjust the margin */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    height: 150px;
+    width: 90%; /* Calculate the width for three cards in a row */
+    color: var(--title-color);
+    text-align: center;
+    border: none;
 }
 
 .comment-title {
@@ -96,10 +106,8 @@ button#submit-comment:hover {
 }
 
 .comment-votes {
-    display: flex;
-    justify-content: space-between;
     font-size: 0.9rem;
-    color: #555;
+    color: var(--second-color);
 }
 
 .course-card {

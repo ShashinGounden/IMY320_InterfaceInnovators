@@ -14,8 +14,9 @@ function renderComments() {
         const commentElement = document.createElement("div");
         commentElement.classList.add("comment");
         commentElement.innerHTML = `
-            <p>${comment.text}</p>
-            <div class="votes">
+            <div class="comment-title">Comment Title ${index + 1}</div>
+            <div class="comment-text">${comment.text}</div>
+            <div class="comment-votes">
                 <span class="upvote" onclick="upvoteComment(${index})">Upvote (${comment.upvotes})</span>
                 <span class="downvote" onclick="downvoteComment(${index})">Downvote (${comment.downvotes})</span>
             </div>
@@ -41,7 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const submitButton = document.getElementById("submit-comment");
     const commentText = document.getElementById("comment-text");
 
-    submitButton.addEventListener("click", () => {
+    submitButton.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent form submission
+
         const newCommentText = commentText.value.trim();
         if (newCommentText !== "") {
             commentsData.push({ text: newCommentText, upvotes: 0, downvotes: 0 });
