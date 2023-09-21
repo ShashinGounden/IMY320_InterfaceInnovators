@@ -1,0 +1,112 @@
+/* Add your CSS styles for the study help page here */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(268, 58%, 48%);
+  --first-color-alt: hsl(268, 28%, 38%);
+  --second-color: hsl(335, 88%, 56%);
+  --second-color-alt: hsl(328, 78%, 38%);
+  --title-color: hsl(0, 0%, 100%);
+  --text-color: hsl(252, 100%, 87%);
+  --body-color: hsl(268, 58%, 22%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --biggest-font-size: 2rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+
+.study-help {
+    text-align: center;
+    padding: 20px;
+}
+
+.comment-form {
+    margin-bottom: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+button#submit-comment {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button#submit-comment:hover {
+    background-color: #0056b3;
+}
+
+.comments-list {
+    text-align: left;
+}
+
+.comment {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.comment .upvote,
+.comment .downvote {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.course-card {
+    opacity: 85%;
+    background-color: var(--first-color-alt);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px; /* Adjust the margin */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    height: 250px;
+    width: calc(33.33% - 50px); /* Calculate the width for three cards in a row */
+    color: var(--title-color);
+    text-align: center;
+    border: none;
+}
+
+.course-card:hover{
+    transform: scale(1.05);
+}
+
+.course-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    justify-content: space-between;
+    padding: 20px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+
+

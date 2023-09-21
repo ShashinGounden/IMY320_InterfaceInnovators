@@ -1,45 +1,118 @@
 <!DOCTYPE html>
-   <html lang="en">
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="../../css/styles.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/studyhelp.css">
 
-      <title>Study help</title>
-      <link rel="icon" type="image/x-icon" href="../favicon.png">
-   </head>
-   <body>
-      <header class="header" id="header">
-         <nav class="nav container">
-            <a href="#" class="logo">
+    <title>Study help</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.png">
+    <style>
+        /* Add your card styles here */
+        .course-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    
+        <nav class="nav container">
+            <a href="../index.html" class="logo">
                 <i class="ri-school-line"></i> Study Sphere
             </a>
 
             <div class="nav_bar" id="nav-menu">
-               <ul class="nav_content_list">
-                  <li class="nav_item">
-                     <a href="./home.html" class="nav_button_normal">Home</a>
-                  </li>
+                <ul class="nav_content_list">
+                    <li class="nav_item">
+                        <a href="./home.html" class="nav_button_normal">Home</a>
+                    </li>
 
-                  <li class="nav_item">
-                     <a href="./resources.html" class="nav_button_normal">Resources and Materials</a>
-                  </li>
+                    <li class="nav_item">
+                        <a href="./resources.html" class="nav_button_normal">Resources and Materials</a>
+                    </li>
 
-                  <li class="nav_item">
-                     <a href="./studyhelp.html" class="nav_button_normal">Study Help</a>
-                  </li>
-               </ul>
+                    <li class="nav_item">
+                        <a href="./studyhelp.html" class="nav_button_normal">Study Help</a>
+                    </li>
+                </ul>
 
-               <a href="../index.html" class="nav_button">Logout</a>
+                <a href="../Auth/login.html" class="nav_button">Login</a>
+
             </div>
-         </nav>
-      </header>
 
-      <main class="main">
-        <section class="home">
-           <!--Real dynamic study help page-->
+        </nav>
+
+
+    <main class="main">
+        <section class="help-container">
+            <div class="course-list">
+                <!-- Course Cards -->
+                <div class="course-card" data-course="Math">
+                    <h2>Math</h2>
+                    <p>Click to get advice on studying Math.</p>
+                </div>
+
+                <div class="course-card" data-course="Science">
+                    <h2>Science</h2>
+                    <p>Click to get advice on studying Science.</p>
+                </div>
+
+                <div class="course-card" data-course="History">
+                    <h2>History</h2>
+                    <p>Click to get advice on studying History.</p>
+                </div>
+
+                <!-- Add more course cards here -->
+                <div class="course-card" data-course="Math">
+                  <h2>Math</h2>
+                  <p>Click to get advice on studying Math.</p>
+              </div>
+
+              <div class="course-card" data-course="Science">
+                  <h2>Science</h2>
+                  <p>Click to get advice on studying Science.</p>
+              </div>
+
+              <div class="course-card" data-course="History">
+                  <h2>History</h2>
+                  <p>Click to get advice on studying History.</p>
+              </div>
+
+               <!-- Add more course cards here -->
+               <div class="course-card" data-course="Math">
+                  <h2>Math</h2>
+                  <p>Click to get advice on studying Math.</p>
+              </div>
+
+              <div class="course-card" data-course="Science">
+                  <h2>Science</h2>
+                  <p>Click to get advice on studying Science.</p>
+              </div>
+
+              <div class="course-card" data-course="History">
+                  <h2>History</h2>
+                  <p>Click to get advice on studying History.</p>
+              </div>
+              
+            </div>
         </section>
-     </main>
-      
-   </body>
+    </main>
+
+    <script>
+      // JavaScript to handle card click events
+      const courseCards = document.querySelectorAll(".course-card");
+  
+      courseCards.forEach(card => {
+          card.addEventListener("click", () => {
+              const courseName = card.getAttribute("data-course");
+              // Redirect to adviceSection.html with the course name as a query parameter
+              window.location.href = `adviceSection.html?course=${encodeURIComponent(courseName)}`;
+          });
+      });
+  </script>
+</body>
 </html>
