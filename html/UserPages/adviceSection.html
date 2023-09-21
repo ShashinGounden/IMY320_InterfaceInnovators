@@ -51,29 +51,30 @@
         ];
         
         function renderComments() {
-            const commentsList = document.querySelector(".comments-list");
-            commentsList.innerHTML = ""; // Clear the existing comments
-        
-            commentsData.forEach((comment, index) => {
-                const commentElement = document.createElement("div");
-                commentElement.classList.add("comment");
-                commentElement.innerHTML = `
-                    <div class="comment-card">
-                        <div class="comment-title">Comment Title ${index + 1}</div>
-                        <div class="comment-text">${comment.text}</div>
-                    </div>
+    const commentsList = document.querySelector(".comments-list");
+    commentsList.innerHTML = ""; // Clear the existing comments
 
-                    <div class="comment-votes">
-    <span class="upvote" onclick="upvoteComment(${index})"><i class="fas fa-arrow-up"> Upvote</i> (${comment.upvotes})</span>
-    <br />
-    <br />
-    <span class="downvote" onclick="downvoteComment(${index})"><i class="fas fa-arrow-down"> Downvote</i> (${comment.downvotes})</span>
-</div>
-                `;
-        
-                commentsList.appendChild(commentElement);
-            });
-        }
+    commentsData.forEach((comment, index) => {
+        const commentElement = document.createElement("div");
+        commentElement.classList.add("comment");
+        commentElement.innerHTML = `
+            <div class="comment-card">
+                <div class="comment-title">${comment.title}</div>
+                <div class="comment-text">${comment.text}</div>
+            </div>
+
+            <div class="comment-votes">
+                <span class="upvote" onclick="upvoteComment(${index})"><i class="fas fa-arrow-up"> Upvote</i> (${comment.upvotes})</span>
+                <br />
+                <br />
+                <span class="downvote" onclick="downvoteComment(${index})"><i class="fas fa-arrow-down"> Downvote</i> (${comment.downvotes})</span>
+            </div>
+        `;
+
+        commentsList.appendChild(commentElement);
+    });
+}
+
         
         function upvoteComment(index) {
             commentsData[index].upvotes++;
@@ -89,22 +90,46 @@
             renderComments();
         
             const submitButton = document.getElementById("submit-comment");
-            const commentText = document.getElementById("comment-text");
-        
-            submitButton.addEventListener("click", (event) => {
-                event.preventDefault(); // Prevent form submission
-        
-                const newCommentText = commentText.value.trim();
-                if (newCommentText !== "") {
-                    commentsData.push({ text: newCommentText, upvotes: 0, downvotes: 0 });
-                    commentText.value = ""; // Clear the input field
-                    renderComments();
-                }
-            });
+    const commentTitle = document.getElementById("comment-title");
+    const commentText = document.getElementById("comment-text");
 
-            const addCommentButton = document.querySelector(".add-comment-button");
+    submitButton.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent form submission
+
+        const newCommentTitle = commentTitle.value.trim();
+        const newCommentText = commentText.value.trim();
+
+        if (newCommentTitle !== "" && newCommentText !== "") {
+            commentsData.push({
+                title: newCommentTitle,
+                text: newCommentText,
+                upvotes: 0,
+                downvotes: 0
+            });
+            commentTitle.value = ""; // Clear the title input field
+            commentText.value = ""; // Clear the text input field
+            commentModal.style.display = "none"; // Close the modal
+            renderComments();
+        }
+    });
+
+    const addCommentButton = document.querySelector(".add-comment-button");
     const commentModal = document.getElementById("commentModal");
     const closeBtn = document.querySelector(".close");
+
+    addCommentButton.addEventListener("click", () => {
+        commentModal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+        commentModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target == commentModal) {
+            commentModal.style.display = "none";
+        }
+    });
     
     addCommentButton.addEventListener("click", () => {
         commentModal.style.display = "block";
@@ -139,10 +164,15 @@
         <div id="commentModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <h2>Add a Comment</h2>
+                <h2>Add your advice</h2>
                 <form id="comment-form" class="comment-form">
-                    <textarea id="comment-text" placeholder="Write your comment here..." required></textarea>
-                    <button id="submit-comment" type="submit">Post Comment</button>
+                    <div>
+                    <div>Title: </div>
+                    <input type="text" id="comment-title" placeholder="Example Title" required>
+                </div>
+                <div>Advice: </div>
+                    <textarea id="comment-text" placeholder="Write your advice here..." required></textarea>
+                    <button id="submit-comment" type="submit">Post Advice</button>
                 </form>
             </div>
         </div>
