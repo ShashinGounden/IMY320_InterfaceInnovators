@@ -149,39 +149,63 @@
       <script>
         // Function to save user profile data
         function saveProfile() {
-           // Retrieve the user data from Local Storage
-           let users = JSON.parse(localStorage.getItem('users')) || [];
-           const loggedInUsername = localStorage.getItem('loggedInUsername');
-  
-           // Find the logged-in user in the array
-           const userIndex = users.findIndex(user => user.username === loggedInUsername);
-  
-           if (userIndex !== -1) {
-              // Update the name and surname with the values from the input fields
-              const firstNameInput = document.getElementById('firstNameInput').value;
-              const surnameInput = document.getElementById('surnameInput').value;
-  
-              users[userIndex].name = firstNameInput;
-              users[userIndex].surname = surnameInput;
-  
-              // Save the updated user data back to Local Storage
-              localStorage.setItem('users', JSON.stringify(users));
-  
-              // Display the updated name and surname
-              const nameSurnameSpan = document.getElementById('nameSurnameSpan');
-              const emailSpan = document.getElementById('emailSpan'); // Added this line
-              const loggedInUser = users[userIndex];
-  
-              if (loggedInUser) {
-                 nameSurnameSpan.textContent = `${loggedInUser.name} ${loggedInUser.surname}`;
-                 emailSpan.textContent = loggedInUser.username; // Display email
-              }
-  
-              alert('Profile saved successfully!');
-           } else {
-              alert('User not found.');
-           }
-        }
+
+          const firstNameInput = document.getElementById('firstNameInput').value;
+         const surnameInput = document.getElementById('surnameInput').value;
+         const universityInput = document.getElementById('universityInput').value;
+         const yearOfStudyInput = document.getElementById('yearOfStudyInput').value;
+
+          if (
+            !firstNameInput.trim() ||
+            !surnameInput.trim() ||
+            universityInput === '' ||
+            yearOfStudyInput === ''
+         ) {
+            alert('Please fill in all required fields.');
+            return;
+         }
+         
+   // Retrieve the user data from Local Storage
+   let users = JSON.parse(localStorage.getItem('users')) || [];
+   const loggedInUsername = localStorage.getItem('loggedInUsername');
+
+   // Find the logged-in user in the array
+   const userIndex = users.findIndex(user => user.username === loggedInUsername);
+
+   if (userIndex !== -1) {
+      // Update the name, surname, university, and year of study with the values from the input fields
+      const firstNameInput = document.getElementById('firstNameInput').value;
+      const surnameInput = document.getElementById('surnameInput').value;
+      const universityInput = document.getElementById('universityInput').value;
+      const yearOfStudyInput = document.getElementById('yearOfStudyInput').value;
+
+      users[userIndex].name = firstNameInput;
+      users[userIndex].surname = surnameInput;
+      users[userIndex].university = universityInput; // Add this line
+      users[userIndex].yearofstudy = yearOfStudyInput; // Add this line
+
+      // Save the updated user data back to Local Storage
+      localStorage.setItem('users', JSON.stringify(users));
+
+      // Display the updated name, surname, university, and year of study
+      const nameSurnameSpan = document.getElementById('nameSurnameSpan');
+      const emailSpan = document.getElementById('emailSpan');
+      const loggedInUser = users[userIndex];
+
+      if (loggedInUser) {
+         nameSurnameSpan.textContent = `${loggedInUser.name} ${loggedInUser.surname}`;
+         emailSpan.textContent = loggedInUser.username;
+         document.getElementById('firstNameInput').value = loggedInUser.name;
+         document.getElementById('surnameInput').value = loggedInUser.surname;
+         document.getElementById('universityInput').value = loggedInUser.university;
+         document.getElementById('yearOfStudyInput').value = loggedInUser.yearofstudy;
+      }
+
+      alert('Profile saved successfully!');
+   } else {
+      alert('User not found.');
+   }
+}
   
         // Load and display user data when the page loads
         window.onload = function() {
@@ -198,6 +222,8 @@
                  emailSpan.textContent = loggedInUser.username;
                  document.getElementById('firstNameInput').value = loggedInUser.name;
                  document.getElementById('surnameInput').value = loggedInUser.surname;
+                 document.getElementById('universityInput').value = loggedInUser.university;
+                 document.getElementById('yearOfStudyInput').value = loggedInUser.yearofstudy;
               }
            }
         };
