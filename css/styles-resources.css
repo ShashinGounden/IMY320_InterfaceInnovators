@@ -67,15 +67,14 @@ body {
   /* Style for individual cards */
   .card {
     flex-basis: calc(33.33% - 20px); /* Adjust the width of cards as needed */
-    opacity: 80%;
-    background-color: white;
-    border-radius: 20px;
+    opacity: 85%;
+    background-color: var(--first-color-alt);
+    border-radius: 5px;
     padding: 20px;
     margin-right: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
-    height: 250px;
-    width: 300px;
+   
     color: var( --title-color);
   }
   
@@ -151,11 +150,10 @@ h3{
 
 .file_list{
   padding: 5px;
-  color: blueviolet;
 }
 
 .file_list:hover{
-  color: var(--text-color);
+  color: var(--title-color);
 }
 
 .home_images {
