@@ -652,4 +652,8 @@ img {
   padding-bottom: 0; /* Remove any bottom padding */
 }
 
+.custom-card {
+  max-width: 16rem; /* Set the same width for all cards */
+  max-height: 8.5rem; /* You can adjust the height as needed */
+}
 
