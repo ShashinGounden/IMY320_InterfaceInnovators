@@ -62,8 +62,32 @@
               <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" id="surnameInput" placeholder="Surname" value=""></div>
             </div>
             <div class="row mt-3">
-              <div class="col-md-12"><label class="labels">University</label><input type="text" class="form-control" id="universityInput" placeholder="University" value=""></div>
-              <div class="col-md-12"><label class="labels">Year of study</label><input type="text" class="form-control" id="yearOfStudyInput" placeholder="Year of study" value=""></div>
+              <div class="col-md-12">
+                <label class="labels">University</label>
+                <select class="form-select" id="universityInput">
+                  <option value="" selected>Select your university</option>
+                  <option value="University A">University A</option>
+                  <option value="University B">University B</option>
+                  <option value="University C">University C</option>
+                  <!-- Add more universities as needed -->
+                </select>
+              </div>
+              <div class="col-md-12">
+                <label class="labels">Year of study</label>
+                <select class="form-select" id="yearOfStudyInput">
+                  <option value="" selected>Select your year of study</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10+">10+</option>
+                </select>
+              </div>
             </div>
           
             <div class="mt-5 text-center">
@@ -152,25 +176,17 @@
       
         // Function to populate user data in the profile settings
        // Function to populate user data in the profile settings
-function populateUserData() {
+       function populateUserData() {
   // Get the logged-in username, first name, and surname from local storage
   const loggedInUsername = localStorage.getItem('loggedInUsername');
   const userFirstName = localStorage.getItem('userFirstName');
   const userSurname = localStorage.getItem('userSurname');
-
-
-  if (loggedInUsername && !userFirstName &&!userSurname) {
-    // Update the HTML elements with the logged-in user's information
-    document.querySelector('.text_email').textContent = loggedInUsername;
-  }
 
   if (loggedInUsername && userFirstName && userSurname) {
     // Update the HTML elements with the logged-in user's information
     document.querySelector('.text_email').textContent = loggedInUsername;
     document.getElementById('nameSurnameSpan').textContent = userFirstName + ' ' + userSurname;
   }
-
- 
 }
 
 // Call the function to populate user data
