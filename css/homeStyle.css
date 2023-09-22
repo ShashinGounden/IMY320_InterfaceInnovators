@@ -621,13 +621,13 @@ img {
 }
 
 .card:first-child .card-title {
-  font-size: 1.25rem; /* Adjust title font size */
+  font-size: 1.4rem; /* Adjust title font size */
 }
 
 .card:first-child .rounded-circle {
   width: 100px; /* Adjust the profile image size */
   height: 100px; /* Adjust the profile image size */
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .card:first-child .labels {
@@ -647,5 +647,9 @@ img {
   max-height: 9rem; /* You can adjust the height as needed */
   margin-bottom: 10px;
   border: solid rgb(126, 126, 126) 0.5px;
+}
+
+.my-card{
+  background-color: rgba(255, 255, 255, 0.85);
 }
 
