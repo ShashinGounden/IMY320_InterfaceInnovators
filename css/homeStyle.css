@@ -615,7 +615,8 @@ img {
 
 .card {
   max-width: 18rem; /* You can adjust the max-width as needed */
-  margin: 0 10px; /* Adjust the horizontal margin between the cards */
+  margin: 0 30px; /* Adjust the horizontal margin between the cards */
+  border-radius: 20px;
 }
 
 .card:first-child {
@@ -647,14 +648,15 @@ img {
 }
 
 .custom-card-container {
-  margin-top: 20px; /* Adjust this value as needed */
+  margin-top: 10px; /* Adjust this value as needed */
   margin-bottom: 0; /* Remove any bottom margin */
   padding-top: 0; /* Remove any top padding */
   padding-bottom: 0; /* Remove any bottom padding */
+  max-height: 600px;
 }
 
 .custom-card {
-  max-width: 16rem; /* Set the same width for all cards */
+  max-width: 19rem; /* Set the same width for all cards */
   max-height: 8.5rem; /* You can adjust the height as needed */
 }
 
