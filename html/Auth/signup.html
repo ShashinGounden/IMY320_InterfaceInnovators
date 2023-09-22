@@ -59,11 +59,15 @@
           <img src="../../images/clouds-2.svg" alt="image" class="home_cloud-2">
          </section>
          <script>
+           
             // Function to handle user sign-up and data storage
             function signUp() {
                const username = document.querySelector('.un').value;
                const password = document.querySelector('.pass').value;
                const confirmPassword = document.querySelectorAll('.pass')[1].value;
+               const name = "";
+               const surname = "";
+               const modules = [];
       
                if (password !== confirmPassword) {
                   alert("Passwords do not match");
@@ -73,7 +77,10 @@
                // Create a user object
                const user = {
                   username,
-                  password
+                  password,
+                  name,
+                  surname,
+                  modules,
                };
       
                // Get existing users from Local Storage or initialize an empty array
@@ -84,15 +91,24 @@
       
                // Store the updated users array in Local Storage
                localStorage.setItem('users', JSON.stringify(users));
+
+               //set current user
                localStorage.setItem('loggedInUsername', user.username);
-      
+               localStorage.setItem('loggedInName', user.name);
+               localStorage.setItem('loggedInSurname', user.surname);
+               
+            
                // Redirect the user to a different HTML page after successful sign-up
                window.location.href = '../UserPages/home.html';
             }
+
+            
       
             // Event listener for the sign-up button
             const signUpButton = document.querySelector('.submit');
             signUpButton.addEventListener('click', signUp);
+
+
          </script>
       
    </body>

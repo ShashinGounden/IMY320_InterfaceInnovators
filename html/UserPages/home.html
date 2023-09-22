@@ -53,7 +53,7 @@
             <div class="d-flex flex-column align-items-center text-center">
               <i class="fas fa-user-circle fa-4x blueviolet-text" style="font-size: 130px;"></i><br>
               <span class="font-weight-bold" style="color: rgba(255, 255, 255, 0.8)" id="nameSurnameSpan"></span>
-              <span class="text_email">example@example.com</span>
+              <span class="text_email" id="emailSpan">example@example.com</span> 
               <span></span>
             </div>
           
@@ -149,49 +149,59 @@
       <script>
         // Function to save user profile data
         function saveProfile() {
-          const firstName = document.getElementById('firstNameInput').value;
-          const surname = document.getElementById('surnameInput').value;
-          const university = document.getElementById('universityInput').value;
-          const yearOfStudy = document.getElementById('yearOfStudyInput').value;
-      
-          // Check if any of the fields are empty
-          if (!firstName || !surname || !university || !yearOfStudy) {
-            alert('Please fill in all fields.');
-            return;
-          }
-      
-          // Store the name and surname in local storage
-          localStorage.setItem('userFirstName', firstName);
-          localStorage.setItem('userSurname', surname);
-      
-          // Display the name and surname in the profile
-          const nameSurnameSpan = document.getElementById('nameSurnameSpan');
-          nameSurnameSpan.textContent = firstName + ' ' + surname;
-      
-          // Perform the saving logic here (e.g., updating user data in local storage)
-          // ...
-      
-          alert('Profile saved successfully.');
+           // Retrieve the user data from Local Storage
+           let users = JSON.parse(localStorage.getItem('users')) || [];
+           const loggedInUsername = localStorage.getItem('loggedInUsername');
+  
+           // Find the logged-in user in the array
+           const userIndex = users.findIndex(user => user.username === loggedInUsername);
+  
+           if (userIndex !== -1) {
+              // Update the name and surname with the values from the input fields
+              const firstNameInput = document.getElementById('firstNameInput').value;
+              const surnameInput = document.getElementById('surnameInput').value;
+  
+              users[userIndex].name = firstNameInput;
+              users[userIndex].surname = surnameInput;
+  
+              // Save the updated user data back to Local Storage
+              localStorage.setItem('users', JSON.stringify(users));
+  
+              // Display the updated name and surname
+              const nameSurnameSpan = document.getElementById('nameSurnameSpan');
+              const emailSpan = document.getElementById('emailSpan'); // Added this line
+              const loggedInUser = users[userIndex];
+  
+              if (loggedInUser) {
+                 nameSurnameSpan.textContent = `${loggedInUser.name} ${loggedInUser.surname}`;
+                 emailSpan.textContent = loggedInUser.email; // Display email
+              }
+  
+              alert('Profile saved successfully!');
+           } else {
+              alert('User not found.');
+           }
         }
-      
-        // Function to populate user data in the profile settings
-       // Function to populate user data in the profile settings
-       function populateUserData() {
-  // Get the logged-in username, first name, and surname from local storage
-  const loggedInUsername = localStorage.getItem('loggedInUsername');
-  const userFirstName = localStorage.getItem('userFirstName');
-  const userSurname = localStorage.getItem('userSurname');
-
-  if (loggedInUsername && userFirstName && userSurname) {
-    // Update the HTML elements with the logged-in user's information
-    document.querySelector('.text_email').textContent = loggedInUsername;
-    document.getElementById('nameSurnameSpan').textContent = userFirstName + ' ' + userSurname;
-  }
-}
-
-// Call the function to populate user data
-populateUserData();
-
-      </script>
+  
+        // Load and display user data when the page loads
+        window.onload = function() {
+           const loggedInUsername = localStorage.getItem('loggedInUsername');
+           const users = JSON.parse(localStorage.getItem('users')) || [];
+           const userIndex = users.findIndex(user => user.username === loggedInUsername);
+           const nameSurnameSpan = document.getElementById('nameSurnameSpan');
+           const emailSpan = document.getElementById('emailSpan');
+  
+           if (userIndex !== -1) {
+              const loggedInUser = users[userIndex];
+              if (loggedInUser) {
+                 nameSurnameSpan.textContent = `${loggedInUser.name} ${loggedInUser.surname}`;
+                 emailSpan.textContent = loggedInUser.username;
+                 document.getElementById('firstNameInput').value = loggedInUser.name;
+                 document.getElementById('surnameInput').value = loggedInUser.surname;
+              
+              }
+           }
+        };
+     </script>
    </body>
 </html>

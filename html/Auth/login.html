@@ -61,26 +61,30 @@
 
          <script>
             // Function to handle user login
+            
             function login() {
-  const username = document.querySelector('.un').value;
-  const password = document.querySelector('.pass').value;
+               const username = document.querySelector('.un').value;
+               const password = document.querySelector('.pass').value;
 
-  // Get existing users from Local Storage or initialize an empty array
-  const users = JSON.parse(localStorage.getItem('users')) || [];
+              
 
-  // Check if the user exists
-  const user = users.find((u) => u.username === username && u.password === password);
+               // Get existing users from Local Storage or initialize an empty array
+               const users = JSON.parse(localStorage.getItem('users')) || [];
 
-  if (user) {
-    // Store the logged-in user's username and name/surname in local storage
-    localStorage.setItem('loggedInUsername', user.username);
-    localStorage.setItem('userFirstName', user.firstName);
-    localStorage.setItem('userSurname', user.surname);
+            // Check if the user exists
+            const user = users.find((u) => u.username === username && u.password === password);
 
-    window.location.href = '../UserPages/home.html';
-  } else {
-    alert('Invalid username or password');
-  }
+               if (user) {
+                  // Store the logged-in user's username and name/surname in local storage
+                  localStorage.setItem('loggedInName', user.firstName);
+                  
+                  localStorage.setItem('loggedInSurname', user.surname);
+                  localStorage.setItem('loggedInUsername', username);
+
+                  window.location.href = '../UserPages/home.html';
+               } else {
+                  alert('Invalid username or password');
+               }
 }
 
 
