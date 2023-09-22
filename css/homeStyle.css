@@ -596,14 +596,6 @@ img {
 .form-control::placeholder {
     color: #888; /* You can adjust the color to your preferred shade of gray */
 }
-.custom-rounded {
-    border-radius: 40px; /* Adjust the value as needed to control the roundness */
-    background-color: rgba(255, 255, 255, 0.93);
-  }
-
-  .bg-white {
-    background-color: rgba(255, 255, 255, 0.93); /* Adjust the alpha value (0.8 in this example) */
-}
 
 .card-container {
   display: flex;
@@ -614,7 +606,6 @@ img {
 }
 
 .card {
-  max-width: 18rem; /* You can adjust the max-width as needed */
   margin: 0 30px; /* Adjust the horizontal margin between the cards */
   border-radius: 20px;
 }
@@ -643,21 +634,17 @@ img {
   font-size: 10px; /* Adjust label font size */
 }
 
-.top-cards {
-  margin-bottom: 50px; /* Adjust this value as needed to move the cards higher */
-}
-
 .custom-card-container {
   margin-top: 10px; /* Adjust this value as needed */
   margin-bottom: 0; /* Remove any bottom margin */
   padding-top: 0; /* Remove any top padding */
   padding-bottom: 0; /* Remove any bottom padding */
-  max-height: 600px;
+  max-height: 80vh;
 }
 
 .custom-card {
   max-width: 19rem; /* Set the same width for all cards */
-  max-height: 8.5rem; /* You can adjust the height as needed */
+  max-height: 9rem; /* You can adjust the height as needed */
   margin-bottom: 10px;
   border: solid rgb(126, 126, 126) 0.5px;
 }
