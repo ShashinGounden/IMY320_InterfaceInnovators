@@ -605,9 +605,51 @@ img {
     background-color: rgba(255, 255, 255, 0.93); /* Adjust the alpha value (0.8 in this example) */
 }
 
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ensures the container takes up the full viewport height */
+}
 
+.card {
+  max-width: 18rem; /* You can adjust the max-width as needed */
+  margin: 0 10px; /* Adjust the horizontal margin between the cards */
+}
 
+.card:first-child {
+  max-width: 14rem; /* Decrease the maximum width */
+  height: auto; /* Remove the fixed height to allow content to dictate the height */
+}
 
+/* Style the card body contents to fit the smaller area */
+.card:first-child .card-body {
+  padding: 1rem; /* Adjust padding as needed */
+}
 
+.card:first-child .card-title {
+  font-size: 1.25rem; /* Adjust title font size */
+}
+
+.card:first-child .rounded-circle {
+  width: 100px; /* Adjust the profile image size */
+  height: 100px; /* Adjust the profile image size */
+  margin-bottom: 2rem;
+}
+
+.card:first-child .labels {
+  font-size: 10px; /* Adjust label font size */
+}
+
+.top-cards {
+  margin-bottom: 50px; /* Adjust this value as needed to move the cards higher */
+}
+
+.custom-card-container {
+  margin-top: 20px; /* Adjust this value as needed */
+  margin-bottom: 0; /* Remove any bottom margin */
+  padding-top: 0; /* Remove any top padding */
+  padding-bottom: 0; /* Remove any bottom padding */
+}
 
 
