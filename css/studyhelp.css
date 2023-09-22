@@ -161,7 +161,7 @@ transform: scale(1.02);
 .course-card {
     opacity: 0.8;
     background-color: var(--first-color-alt);
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 20px;
     margin-bottom: 60px; /* Adjust the margin */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -240,7 +240,7 @@ transform: scale(1.02);
 }
 
 .home_planet-1 {
-  width: 110px;
+  width: 100px;
   top: 1.25rem;
   left: .75rem;
   animation: slideIn 0.5s ease forwards;
