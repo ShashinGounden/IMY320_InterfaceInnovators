@@ -101,7 +101,7 @@
           <div class="card-body">
             <h4 class="card-title" style="color:rgb(255, 255, 255 ); text-align: center;">Subjects</h4>
             <div class="input-group rounded bg-purple" id="search-addon">
-              <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+              <input  id="search-id" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
               <span class="input-group-text border-0 bg-purple">
                   <i class="fas fa-search text-white" style = "background: linear-gradient(to right, #9C27B0, #E040FB);"></i>
               </span>
@@ -110,7 +110,7 @@
 
             <div class="scrollable-card-container">
 
-              <div class="card custom-card text-center">
+              <!--<div class="card custom-card text-center">
                 <div class="card-body">
                   <h5 class="card-title"  style="color:rgb(158, 77, 234);">IMY320</h5>
                   <p class="card-text">Fuck this subject</p>
@@ -140,12 +140,105 @@
                     <p class="card-text">Security and Ethics</p>
                     <a href="#" class="btn btn-danger" style = "border-radius: 20px;">Remove</a>
                   </div>
-                </div>
+                </div>-->
             </div>
         </div> 
 
       </div>
 
+
+      <script>
+        // JSON data
+        const jsonData = [
+          {
+            "title": "IMY320",
+            "body": "Multimedia"
+          },
+          {
+            "title": "COS330",
+            "body": "Security and Ethics"
+          },
+          {
+            "title": "COS333",
+            "body": "Programming Languages"
+          },
+          {
+            "title": "COS301",
+            "body": "Software Engineering"
+          },
+          {
+            "title": "COS341",
+            "body": "Compiler Construction"
+          },
+          {
+            "title": "COS332",
+            "body": "Computer Networks"
+          },
+          {
+            "title": "IMY310",
+            "body": "Multimedia"
+          }
+        ];
+
+        // Function to create a card
+        function createCard(title, body) {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.classList.add('custom-card');
+            card.classList.add('text-center');
+            card.innerHTML = `
+              <div class="card-body" >
+                  <h5 class="card-title" style="color:rgb(158, 77, 234);">${title}</h5>
+                  <p class="card-text">${body}</p>
+                  <a href="#" class="btn" style = "border-radius: 20px;background: linear-gradient(to right, #9C27B0, #E040FB); color:white; ">Add</a>
+              </div>
+            </div>
+            `;
+            return card;
+        }
+
+        // Function to filter and display cards based on the search query
+        function displaySearchResults(query) {
+            const cardContainer = document.querySelector('.scrollable-card-container');
+            cardContainer.innerHTML = ''; // Clear previous cards
+
+            if (query.trim() === '') {
+              return; // Don't display any cards if the query is empty
+            }
+            
+            jsonData.forEach(item => {
+              console.log("search");
+                if (item.title.toLowerCase().includes(query.toLowerCase())) {
+                    const card = createCard(item.title, item.body);
+                    cardContainer.appendChild(card);
+                    
+                }
+            });
+        }
+
+      
+        document.addEventListener('DOMContentLoaded', function () {
+            const searchInput = document.getElementById('search-id');
+            
+            if (searchInput) { 
+                searchInput.addEventListener('input', () => {
+                  const searchInput = document.getElementById('search-id');
+
+                  // Add input event listener for live search
+                  searchInput.addEventListener('input', () => {
+                      const query = searchInput.value.trim();
+                      displaySearchResults(query);
+                  });
+                });
+            } else {
+                console.error("Element with ID 'search-id' not found.");
+            }
+            
+            // Other JavaScript code can go here.
+        });
+    </script>
+
+    
       <script>
         // Function to save user profile data
         function saveProfile() {
