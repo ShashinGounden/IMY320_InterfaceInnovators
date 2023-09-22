@@ -41,7 +41,7 @@
                <div class="mainLog" style="animation: slideIn 0.5s ease forwards;">
                   <p class="sign" align="center">Login</p>
                   <form class="form1">
-                  <input class="un " type="text" align="center" placeholder="Username">
+                  <input class="un " type="text" align="center" placeholder="Email Address">
                   <input class="pass" type="password" align="center" placeholder="Password">
                   <a class="submit" align="center">Login</a>
                   <p class="forgot" align="center"><a href="./signup.html">Dont have an account? Sign up here</p>   
@@ -58,6 +58,32 @@
           <img src="../../images/clouds-1.svg" alt="image" class="home_cloud-1">
           <img src="../../images/clouds-2.svg" alt="image" class="home_cloud-2">
          </section>
+
+         <script>
+            // Function to handle user login
+            function login() {
+   const username = document.querySelector('.un').value;
+   const password = document.querySelector('.pass').value;
+
+   // Get existing users from Local Storage or initialize an empty array
+   const users = JSON.parse(localStorage.getItem('users')) || [];
+
+   // Check if the user exists
+   const user = users.find((u) => u.username === username && u.password === password);
+
+   if (user) {
+      // Store the logged-in user's username in local storage
+      localStorage.setItem('loggedInUsername', user.username);
+      window.location.href = '../UserPages/home.html';
+   } else {
+      alert('Invalid username or password');
+   }
+}
+      
+            // Event listener for the login button
+            const loginButton = document.querySelector('.submit');
+            loginButton.addEventListener('click', login);
+         </script>
       
    </body>
 </html>

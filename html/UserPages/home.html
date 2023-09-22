@@ -119,5 +119,22 @@
         </div> 
 
       </div>
+
+      <script>
+        // Function to populate user data in the profile settings
+        function populateUserData() {
+          // Get the logged-in username from local storage
+          const loggedInUsername = localStorage.getItem('loggedInUsername');
+      
+          if (loggedInUsername) {
+            // Update the HTML element with the logged-in username
+            console.log(loggedInUsername);
+            document.querySelector('.text_email').textContent = loggedInUsername;
+          }
+        }
+      
+        // Call the function to populate user data
+        populateUserData();
+      </script>
    </body>
 </html>

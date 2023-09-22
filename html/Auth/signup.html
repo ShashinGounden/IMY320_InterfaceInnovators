@@ -5,7 +5,7 @@
       <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-      <title>Login</title>
+      <title>S</title>
       <link rel="icon" type="image/x-icon" href="../favicon.png">
    </head>
 
@@ -40,7 +40,7 @@
                <div class="mainSign" style="animation: slideIn 0.5s ease forwards;">
                   <p class="sign" align="center">Sign up</p>
                   <form class="form1">
-                     <input class="un " type="text" align="center" placeholder="Username">
+                     <input class="un " type="text" align="center" placeholder="Email Address">
                      <input class="pass" type="password" align="center" placeholder="Password">
                      <input class="pass" type="password" align="center" placeholder="Confirm password">
                      <a class="submit" align="center">Sign up</a>
@@ -58,6 +58,42 @@
           <img src="../../images/clouds-1.svg" alt="image" class="home_cloud-1">
           <img src="../../images/clouds-2.svg" alt="image" class="home_cloud-2">
          </section>
+         <script>
+            // Function to handle user sign-up and data storage
+            function signUp() {
+               const username = document.querySelector('.un').value;
+               const password = document.querySelector('.pass').value;
+               const confirmPassword = document.querySelectorAll('.pass')[1].value;
+      
+               if (password !== confirmPassword) {
+                  alert("Passwords do not match");
+                  return;
+               }
+      
+               // Create a user object
+               const user = {
+                  username,
+                  password
+               };
+      
+               // Get existing users from Local Storage or initialize an empty array
+               let users = JSON.parse(localStorage.getItem('users')) || [];
+      
+               // Add the new user to the array
+               users.push(user);
+      
+               // Store the updated users array in Local Storage
+               localStorage.setItem('users', JSON.stringify(users));
+               localStorage.setItem('loggedInUsername', user.username);
+      
+               // Redirect the user to a different HTML page after successful sign-up
+               window.location.href = '../UserPages/home.html';
+            }
+      
+            // Event listener for the sign-up button
+            const signUpButton = document.querySelector('.submit');
+            signUpButton.addEventListener('click', signUp);
+         </script>
       
    </body>
 </html>
