@@ -88,7 +88,7 @@ img {
   top: 0;
   left: 0;
   background-color: var(--body-color);
-  z-index: var(--z-fixed);
+  z-index: 100;
 }
 
 .nav {
@@ -542,8 +542,9 @@ img {
     display: flex;
     flex-direction: column;
     animation: slideIn 0.5s ease forwards;
-    position: absolute;
+    position: relative;
     width: 100%;
+    z-index: 10; /* Set a higher z-index for the content */
   }
 
 a{
@@ -601,8 +602,7 @@ h3{
 }
 
 .cloud-image {
-  position: absolute;
-  /*top: 50%; /* Adjust this value to move the image down */
+  position: fixed;
   left: 0;
   z-index: -1; /* Place behind the container */
   transform: translateY(-50%); /* Center vertically */
@@ -611,9 +611,9 @@ h3{
 }
 
 .space-image {
-  position: absolute;
+  position: fixed;
   /*top: 50%;  Adjust this value to move the image down */
-  bottom: 3%;
+  bottom: 1%;
   left: 0;
   z-index: -1; /* Place behind the container */
   /*transform: translateY(-50%);  Center vertically */

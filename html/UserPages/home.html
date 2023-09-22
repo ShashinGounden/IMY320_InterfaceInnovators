@@ -50,23 +50,25 @@
         <div class="card my-card" style="max-width: 20rem; animation: slideIn 0.5s ease forwards; height:582px;">
           <div class="card-body">
             <h4 class="card-title" style="color:rgb(255, 255, 255 ); text-align: center;">Profile Settings</h4>
-            <div class="d-flex flex-column align-items-center text-center" >
+            <div class="d-flex flex-column align-items-center text-center">
               <i class="fas fa-user-circle fa-4x blueviolet-text" style="font-size: 130px;"></i><br>
-            <span class="font-weight-bold" style = "color:rgba(255,255,255,0.8)">Tyrone MacLeod</span>
-            <span class="text_email">TyronetheKing@gmail.com</span>
-            <span></span>
+              <span class="font-weight-bold" style="color: rgba(255, 255, 255, 0.8)" id="nameSurnameSpan"></span>
+              <span class="text_email">example@example.com</span>
+              <span></span>
             </div>
-
+          
             <div class="row mt-2">
-                  <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="First name" value=""></div>
-                  <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="" placeholder="Surname"></div>
+              <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" id="firstNameInput" placeholder="First name" value=""></div>
+              <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" id="surnameInput" placeholder="Surname" value=""></div>
             </div>
             <div class="row mt-3">
-                  <div class="col-md-12"><label class="labels">University</label><input type="text" class="form-control" placeholder="University" value=""></div>
-                  <div class="col-md-12"><label class="labels">Year of study</label><input type="text" class="form-control" placeholder="Year of study" value=""></div>
+              <div class="col-md-12"><label class="labels">University</label><input type="text" class="form-control" id="universityInput" placeholder="University" value=""></div>
+              <div class="col-md-12"><label class="labels">Year of study</label><input type="text" class="form-control" id="yearOfStudyInput" placeholder="Year of study" value=""></div>
             </div>
-
-            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
+          
+            <div class="mt-5 text-center">
+              <button class="btn btn-primary profile-button" type="button" onclick="saveProfile()">Save Profile</button>
+            </div>
           </div>
         </div>
         
@@ -121,20 +123,59 @@
       </div>
 
       <script>
-        // Function to populate user data in the profile settings
-        function populateUserData() {
-          // Get the logged-in username from local storage
-          const loggedInUsername = localStorage.getItem('loggedInUsername');
+        // Function to save user profile data
+        function saveProfile() {
+          const firstName = document.getElementById('firstNameInput').value;
+          const surname = document.getElementById('surnameInput').value;
+          const university = document.getElementById('universityInput').value;
+          const yearOfStudy = document.getElementById('yearOfStudyInput').value;
       
-          if (loggedInUsername) {
-            // Update the HTML element with the logged-in username
-            console.log(loggedInUsername);
-            document.querySelector('.text_email').textContent = loggedInUsername;
+          // Check if any of the fields are empty
+          if (!firstName || !surname || !university || !yearOfStudy) {
+            alert('Please fill in all fields.');
+            return;
           }
+      
+          // Store the name and surname in local storage
+          localStorage.setItem('userFirstName', firstName);
+          localStorage.setItem('userSurname', surname);
+      
+          // Display the name and surname in the profile
+          const nameSurnameSpan = document.getElementById('nameSurnameSpan');
+          nameSurnameSpan.textContent = firstName + ' ' + surname;
+      
+          // Perform the saving logic here (e.g., updating user data in local storage)
+          // ...
+      
+          alert('Profile saved successfully.');
         }
       
-        // Call the function to populate user data
-        populateUserData();
+        // Function to populate user data in the profile settings
+       // Function to populate user data in the profile settings
+function populateUserData() {
+  // Get the logged-in username, first name, and surname from local storage
+  const loggedInUsername = localStorage.getItem('loggedInUsername');
+  const userFirstName = localStorage.getItem('userFirstName');
+  const userSurname = localStorage.getItem('userSurname');
+
+
+  if (loggedInUsername && !userFirstName &&!userSurname) {
+    // Update the HTML elements with the logged-in user's information
+    document.querySelector('.text_email').textContent = loggedInUsername;
+  }
+
+  if (loggedInUsername && userFirstName && userSurname) {
+    // Update the HTML elements with the logged-in user's information
+    document.querySelector('.text_email').textContent = loggedInUsername;
+    document.getElementById('nameSurnameSpan').textContent = userFirstName + ' ' + userSurname;
+  }
+
+ 
+}
+
+// Call the function to populate user data
+populateUserData();
+
       </script>
    </body>
 </html>
