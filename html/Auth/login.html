@@ -74,14 +74,15 @@
   if (user) {
     // Store the logged-in user's username and name/surname in local storage
     localStorage.setItem('loggedInUsername', user.username);
-    localStorage.setItem('userFirstName', "");
-    localStorage.setItem('userSurname', "");
+    localStorage.setItem('userFirstName', user.firstName);
+    localStorage.setItem('userSurname', user.surname);
 
     window.location.href = '../UserPages/home.html';
   } else {
     alert('Invalid username or password');
   }
 }
+
 
       
             // Event listener for the login button
