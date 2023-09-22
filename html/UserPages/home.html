@@ -174,7 +174,7 @@
   
               if (loggedInUser) {
                  nameSurnameSpan.textContent = `${loggedInUser.name} ${loggedInUser.surname}`;
-                 emailSpan.textContent = loggedInUser.email; // Display email
+                 emailSpan.textContent = loggedInUser.username; // Display email
               }
   
               alert('Profile saved successfully!');
@@ -198,7 +198,6 @@
                  emailSpan.textContent = loggedInUser.username;
                  document.getElementById('firstNameInput').value = loggedInUser.name;
                  document.getElementById('surnameInput').value = loggedInUser.surname;
-              
               }
            }
         };
