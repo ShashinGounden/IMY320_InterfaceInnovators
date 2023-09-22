@@ -1,20 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
 .form-control:focus {
     box-shadow: none;
     border-color: #BA68C8
 }
 
-.form-control{
- background-color: rgba(255,255,255,0.9);
-}
-
 .profile-button {
-    background: rgb(99, 39, 120);
+    background: linear-gradient(to right, #9C27B0, #E040FB);
     box-shadow: none;
-    border: solid white 1px;
+    border: none;
+    width: 100%;
+    border-radius: 20px;
 }
 
 .profile-button:hover {
-    background: #682773
+   transform: scale(1.05);
 }
 
 .profile-button:focus {
@@ -62,7 +62,7 @@
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: "Montserrat", sans-serif;
+  --body-font: 'Montserrat', sans-serif;
   --biggest-font-size: 2rem;
   --normal-font-size: .938rem;
   --small-font-size: .813rem;
@@ -566,7 +566,7 @@ img {
 
 /* Style the container with a purple background */
 .bg-purple {
-    background-color: rgb(99, 39, 120); /* Use your desired purple color */
+  background: linear-gradient(to right, #9C27B0, #E040FB);
 }
 
 /* Style the search icon */
@@ -607,7 +607,7 @@ img {
 }
 
 .card {
-  margin: 0 30px; /* Adjust the horizontal margin between the cards */
+  margin: 0 10px; /* Adjust the horizontal margin between the cards */
   border-radius: 20px;
 }
 
@@ -644,8 +644,8 @@ img {
 }
 
 .custom-card {
-  max-width: 19rem; /* Set the same width for all cards */
-  max-height: 9rem; /* You can adjust the height as needed */
+  max-width: 220px; /* Set the same width for all cards */
+  max-height: 200px; /* You can adjust the height as needed */
   margin-bottom: 10px;
   background-color: rgba(255,255,255,0.9);
 }
@@ -654,4 +654,12 @@ img {
   background-color:  rgba(92, 61, 127, 0.85);
   opacity: 80%;
 }
+
+.text_email{
+  color: #E040FB;
+}
+
+
+
+
 
