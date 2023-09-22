@@ -49,11 +49,16 @@
 }
 
 textarea#comment-text {
-    width: 100%;
+    width: 500px;
+    height: 300px;
     padding: 10px;
+    margin: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    resize: vertical;
+    resize: none;
+    text-align: center;
+    margin-bottom: 10px;
+    
 }
 
 button#submit-comment {
@@ -64,21 +69,27 @@ button#submit-comment {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 90%;
 }
 
 button#submit-comment:hover {
-    background-color: var(--first-color-alt);
+    transform: scale(1.05);
 }
 
 
 .comments-list {
-    text-align: left;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: slideIn 0.5s ease forwards;
 }
 
 .comment {
   padding: 10px;
   margin: 20px 0;
-  opacity: 85%;
+  opacity: 0.90;
   background-color: var(--first-color-alt);
   border-radius: 5px;
   padding: 20px;
@@ -86,7 +97,7 @@ button#submit-comment:hover {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
   height: auto; /* Adjust height to accommodate content */
-  width: 100%; /* Calculate the width for three cards in a row */
+  width: 90%; /* Calculate the width for three cards in a row */
   color: var(--title-color);
   text-align: center;
   border: none;
@@ -95,15 +106,29 @@ button#submit-comment:hover {
   justify-content: space-between; /* Add space between title and votes */
 }
 
+.comment-card {
+  text-align: center;
+  width: 100%;
+}
+
+.comment:hover{
+transform: scale(1.02);
+}
+
 .comment-title {
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 5px;
+  text-align: center; /* Center-align the comment title */
+  margin-left: 15%;
 }
+
 
 .comment-text {
   font-size: 1rem;
   margin-bottom: 10px;
+  text-align: center; /* Center-align the comment text */
+  margin-left: 15%;
 }
 
 .comment .upvote,
@@ -114,7 +139,15 @@ button#submit-comment:hover {
 
 .comment-votes {
   font-size: 0.9rem;
-  color: var(--second-color);
+  color: var(--text-color);
+  width: 15%;
+}
+
+.upvote:hover{
+  color: var(--title-color);
+}
+.downvote:hover{
+  color: var(--title-color);
 }
 
 .course-card {
@@ -246,6 +279,104 @@ li:hover{
   color: var(--title-color);
   cursor: pointer;
 }
+
+.add-comment-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--second-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-comment-button:hover {
+    background-color: var(--second-color-alt);
+}
+
+.add-comment-button i {
+    font-size: 24px;
+    color: var(--title-color);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center both vertically and horizontally */
+  width: 600px;
+  height: 600px;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.modal-content {
+  background-color: var(--body-color);
+  padding: 20px;
+  border-radius: 5px;
+  background-color: var(--first-color-alt);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  position: relative;
+  width: 100%; /* Ensure the content width matches the modal width */
+  height: 100%;
+  animation: slideIn 0.5s ease forwards;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.close:hover{
+  color: var(--title-color);
+}
+
+/* Center the modal content vertically and horizontally */
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+#comment-title{
+  width: 200px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+}
+
+input{
+  text-align: center;
+}
+
+.home_rocket {
+  width: 110px;
+  animation: slideIn 0.5s ease forwards;
+  z-index: -5;
+  left: 65%;
+
+}
+
+.title_rocket {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row; /* Center content vertically and align items in a column */
+
+}
+
 
 
 
