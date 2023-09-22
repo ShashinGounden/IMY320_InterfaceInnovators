@@ -1,5 +1,5 @@
     .mainLog {
-        background-color: #FFFFFF;
+        background-color: rgba(255,255,255,0.85);
         width: 400px;
         height: 400px;
         margin: 7em auto;
@@ -10,20 +10,19 @@
     }
 
     .mainSign {
-        background-color: #FFFFFF;
-        width: 400px;
-        height: 430px;
-        margin: 7em auto;
-        border-radius: 1.5em;
-        box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
-        position: absolute;
-        left: 50%;
+      background-color: rgba(255,255,255,0.85);
+      width: 400px;
+      height: 430px;
+      margin: 7em auto;
+      border-radius: 1.5em;
+      box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+      position: absolute;
+      left: 50%;
     }
     
     .sign {
         padding-top: 70px;
         color: #8C55AA;
-        font-family: 'Ubuntu', sans-serif;
         font-weight: bold;
         font-size: 23px;
     }
@@ -45,7 +44,7 @@
     margin-left: 46px;
     text-align: center;
     margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
+    
     }
     
     form.form1 {
@@ -69,7 +68,7 @@
     margin-left: 46px;
     text-align: center;
     margin-bottom: 27px;
-    font-family: 'Ubuntu', sans-serif;
+    
     }
     
    
@@ -88,7 +87,7 @@
         padding-right: 40px;
         padding-bottom: 10px;
         padding-top: 10px;
-        font-family: 'Ubuntu', sans-serif;
+        
         margin-left: 35%;
         font-size: 13px;
         box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
