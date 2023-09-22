@@ -625,8 +625,8 @@ img {
 }
 
 .card:first-child .rounded-circle {
-  width: 100px; /* Adjust the profile image size */
-  height: 100px; /* Adjust the profile image size */
+  width: 150px; /* Adjust the profile image size */
+  height: 150px; /* Adjust the profile image size */
   margin-bottom: 1.5rem;
 }
 
