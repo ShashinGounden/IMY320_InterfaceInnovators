@@ -61,19 +61,22 @@
         const commentsData = [
             { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1"},
             { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 2" },
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1"},
-            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 2" },
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1"},
-            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 2" },
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1"},
-            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 2" },
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 3"},
+            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 4" },
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 5"},
+            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 6" },
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 7"},
+            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 8" },
         ];
         
-    function renderComments() {
+        function renderComments() {
     const commentsList = document.querySelector(".comments-list");
     commentsList.innerHTML = ""; // Clear the existing comments
 
-    commentsData.forEach((comment, index) => {
+    // Sort comments by upvotes in descending order
+    const sortedComments = commentsData.slice().sort((a, b) => b.upvotes - a.upvotes);
+
+    sortedComments.forEach((comment, index) => {
         const commentElement = document.createElement("div");
         commentElement.classList.add("comment");
         commentElement.innerHTML = `
@@ -81,29 +84,37 @@
                 <div class="comment-title">${comment.title}</div>
                 <div class="comment-text">${comment.text}</div>
             </div>
-
             <div class="comment-votes">
-                <span class="upvote" onclick="upvoteComment(${index})"><i class="fas fa-arrow-up"> Upvote</i> (${comment.upvotes})</span>
-                <br />
-                <br />
-                <span class="downvote" onclick="downvoteComment(${index})"><i class="fas fa-arrow-down"> Downvote</i> (${comment.downvotes})</span>
-            </div>
+                <span class="upvote" onclick="upvoteComment('${comment.title}')"><i class="fas fa-arrow-up"> Upvote</i> (${comment.upvotes})</span>
+<br />
+<br />
+<span class="downvote" onclick="downvoteComment('${comment.title}')"><i class="fas fa-arrow-down"> Downvote</i> (${comment.downvotes})</span>
+
+</div>
+
         `;
 
         commentsList.appendChild(commentElement);
     });
 }
 
+
         
-        function upvoteComment(index) {
-            commentsData[index].upvotes++;
-            renderComments();
-        }
-        
-        function downvoteComment(index) {
-            commentsData[index].downvotes++;
-            renderComments();
-        }
+function upvoteComment(commentTitle) {
+    const comment = commentsData.find(comment => comment.title === commentTitle);
+    if (comment) {
+        comment.upvotes++;
+        renderComments();
+    }
+}
+
+function downvoteComment(commentTitle) {
+    const comment = commentsData.find(comment => comment.title === commentTitle);
+    if (comment) {
+        comment.downvotes++;
+        renderComments();
+    }
+}
         
         document.addEventListener("DOMContentLoaded", () => {
             renderComments();
