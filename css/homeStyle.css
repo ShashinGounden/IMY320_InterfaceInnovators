@@ -9,7 +9,7 @@
 .profile-button {
     background: rgb(99, 39, 120);
     box-shadow: none;
-    border: none
+    border: solid white 1px;
 }
 
 .profile-button:hover {
@@ -646,10 +646,11 @@ img {
   max-width: 19rem; /* Set the same width for all cards */
   max-height: 9rem; /* You can adjust the height as needed */
   margin-bottom: 10px;
-  /*border: solid rgb(126, 126, 126) 0.5px;*/
+  background-color: rgba(255,255,255,0.9);
 }
 
 .my-card{
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color:  rgba(92, 61, 127, 0.85);
+  opacity: 80%;
 }
 
