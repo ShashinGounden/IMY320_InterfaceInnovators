@@ -55,6 +55,8 @@ body {
     font-size: 24px;
     padding: 20px;
     text-align: center;
+
+    color: #E040FB;
   }
   
   /* Container for the cards */
@@ -74,7 +76,7 @@ body {
     margin-right: 20px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
-   
+    height: 250px;
     color: var( --title-color);
   }
   
@@ -95,7 +97,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
+
   }
 
   .module_container{
@@ -153,7 +155,7 @@ h3{
 }
 
 .file_list:hover{
-  color: var(--title-color);
+  color: #E040FB;
 }
 
 .home_images {
