@@ -658,5 +658,7 @@ img {
 .custom-card {
   max-width: 19rem; /* Set the same width for all cards */
   max-height: 8.5rem; /* You can adjust the height as needed */
+  margin-bottom: 10px;
+  border: solid rgb(126, 126, 126) 0.5px;
 }
 
