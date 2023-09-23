@@ -46,7 +46,7 @@
 
 
         
-        <section class="help-container">
+        <section class="help-container" id="help-container">
             <div class="course-list">
                 <!-- Course Cards -->
             </div>
@@ -73,9 +73,17 @@ function populateCourseCards() {
     
     const loggedInUser = localStorageData.find(user => user.username === loggedInUsername);
 
-    if (loggedInUser !==-1 && loggedInUser.modules) 
+    if(loggedInUser.modules == '')
     {
-       
+        const html = `<br><br><div><h1 style ="font-size:35px">No modules added</></div>`;
+        const modulesContainer = document.getElementById('help-container');
+
+        modulesContainer.innerHTML = html;
+        return;
+    }
+
+    if (loggedInUser !==-1 && loggedInUser.modules) 
+    {         
         const arrayOfModules = Array.from(loggedInUser.modules);
         console.log(arrayOfModules)
         const courseList = document.querySelector(".course-list");
