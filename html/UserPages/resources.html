@@ -63,28 +63,21 @@
                 //to do
                 if(loggedInUser.modules == '')
                 {
-                   const html = `<div>No modules added</div>`;
+                   const html = `<br><br><div><h1 style ="font-size:35px">No modules added</></div>`;
                    const modulesContainer = document.getElementById('modulesContainer');
 
                    modulesContainer.innerHTML = html;
-                   console.log(modulesContainer.innerHTML);
+                   return;
                 }
 
                 if (loggedInUser !==-1 && loggedInUser.modules) {
-                   
+
                     
-                    
-                    const modulesContainer = document.getElementById('modulesContainer');
-                    modulesContainer.innerHTML = ''; // Clear the container
+                const modulesContainer = document.getElementById('modulesContainer');
+                modulesContainer.innerHTML = ''; // Clear the container
 
-                    //start for each element of localstoragedata.modules
-                  
-                    console.log("modules: " + loggedInUser.modules);
-
-                    const arrayOfModules = Array.from(loggedInUser.modules)
-
-;
-
+                const arrayOfModules = Array.from(loggedInUser.modules)
+                ;
                 arrayOfModules.forEach(module => {
                         const subject = document.createElement('div');
                             subject.classList.add('module_container');
