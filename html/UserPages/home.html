@@ -182,20 +182,19 @@
 
         // Function to create a card
         function createCard(title, body) {
-            const card = document.createElement('div');
-            card.classList.add('card');
-            card.classList.add('custom-card');
-            card.classList.add('text-center');
-            card.innerHTML = `
-              <div class="card-body" >
-                  <h5 class="card-title" style="color:rgb(158, 77, 234);">${title}</h5>
-                  <p class="card-text">${body}</p>
-                  <a href="#" class="btn" style = "border-radius: 20px;background: linear-gradient(to right, #9C27B0, #E040FB); color:white; ">Add</a>
-              </div>
-            </div>
-            `;
-            return card;
-        }
+  const card = document.createElement('div');
+  card.classList.add('card');
+  card.classList.add('custom-card');
+  card.classList.add('text-center');
+  card.innerHTML = `
+    <div class="card-body" >
+        <h5 class="card-title" style="color:rgb(158, 77, 234);">${title}</h5>
+        <p class="card-text">${body}</p>
+        <button class="btn" style="border-radius: 20px;background: linear-gradient(to right, #9C27B0, #E040FB); color:white;" onclick="addModule('${title}')">Add</button>
+    </div>
+    `;
+  return card;
+}
 
         // Function to filter and display cards based on the search query
         function displaySearchResults(query) {
@@ -236,6 +235,39 @@
             
             // Other JavaScript code can go here.
         });
+
+        //add modules to logged in users module list
+        function addModule(moduleTitle) {
+  // Retrieve the user data from Local Storage
+  const loggedInUsername = localStorage.getItem('loggedInUsername');
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+
+  // Find the logged-in user in the array
+  const userIndex = users.findIndex(user => user.username === loggedInUsername);
+
+  if (userIndex !== -1) {
+    // Check if the module already exists in the user's module list
+    const user = users[userIndex];
+    if (!user.modules.includes(moduleTitle)) {
+      // Add the module to the user's module list
+      user.modules.push(moduleTitle);
+
+      // Save the updated user data back to Local Storage
+      localStorage.setItem('users', JSON.stringify(users));
+
+      alert(`Module "${moduleTitle}" added to your list.`);
+
+      const localStorageData = JSON.parse(localStorage.getItem('users'));
+    console.log('Local Storage Contents:', localStorageData);
+    } else {
+      alert(`Module "${moduleTitle}" is already in your list.`);
+    }
+  } else {
+    alert('User not found.');
+  }
+}
+
+        
     </script>
 
     
