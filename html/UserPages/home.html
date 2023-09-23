@@ -382,20 +382,20 @@
               // Save the updated user data back to Local Storage
               localStorage.setItem('users', JSON.stringify(users));
 
-              alert(`Module "${moduleTitle}" added to your list.`);
+              showModal(`Module "${moduleTitle}" added to your list.`);
 
               const localStorageData = JSON.parse(localStorage.getItem('users'));
               console.log('Local Storage Contents:', localStorageData);
 
             
             } else {
-              alert(`Module "${moduleTitle}" is already in your list.`);
+              showModal(`Module "${moduleTitle}" is already in your list.`);
               const localStorageData = JSON.parse(localStorage.getItem('users'));
               
               console.log('Local Storage Contents:', localStorageData);
             }
           } else {
-            alert('User not found.');
+            showModal('User not found.');
           }
         }
 
@@ -452,7 +452,7 @@
             universityInput === '' ||
             yearOfStudyInput === ''
          ) {
-            alert('Please fill in all required fields.');
+            showModal('Please fill in all required fields.');
             return;
          }
          
@@ -492,9 +492,9 @@
                 document.getElementById('yearOfStudyInput').value = loggedInUser.yearofstudy;
               }
 
-              alert('Profile saved successfully!');
+              showModal('Profile saved successfully!');
           } else {
-              alert('User not found.');
+            showModal('User not found.');
           }
         }
           
@@ -519,6 +519,39 @@
            }
            loadModulesFromLocalStorage();
         };
-     </script>
+
+        // Function to show a custom modal with a message
+        function showModal(message) {
+          const modal = document.getElementById('custom-modal');
+          const modalText = document.getElementById('modal-text');
+
+          modalText.textContent = message;
+          modal.style.display = 'block';
+
+          // Add an event listener to close the modal when the close button is clicked
+          const closeBtn = document.querySelector('.close');
+          closeBtn.addEventListener('click', hideModal);
+        }
+
+        // Function to hide the custom modal
+        function hideModal() {
+          const modal = document.getElementById('custom-modal');
+          modal.style.display = 'none';
+        }
+
+        // Example of showing a custom popup
+        function showCustomPopup() {
+          const message = 'This is a custom popup message.';
+          showModal(message);
+        }
+
+      </script>
+
+        <div id="custom-modal" class="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-text"></p>
+          </div>
+        </div>
    </body>
 </html>

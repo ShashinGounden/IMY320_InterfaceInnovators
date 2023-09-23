@@ -50,6 +50,8 @@
         </main>
 
     <script>
+
+        
         // JavaScript for interacting with comments
         function getQueryParam(parameterName) {
             const queryString = window.location.search;
@@ -149,9 +151,67 @@
             }
         }
 
+       
+
         document.addEventListener("DOMContentLoaded", () => {
             renderComments();
+        
+            const submitButton = document.getElementById("submit-comment");
+    const commentText = document.getElementById("comment-text");
+    const commentTitle = document.getElementById("comment-title"); // Add this line to get the comment title input field
+    const commentModal = document.getElementById("commentModal"); // Select the modal element
+
+    submitButton.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent form submission
+
+        const newCommentText = commentText.value.trim();
+        const newCommentTitle = commentTitle.value.trim(); // Get the comment title from the input field
+
+        if (newCommentText !== "" && newCommentTitle !== "") { // Check if both title and text are not empty
+            commentsData.push({ text: newCommentText, title: newCommentTitle, upvotes: 0, downvotes: 0 }); // Include the title in the comment object
+            commentText.value = ""; // Clear the input field
+            commentTitle.value = ""; // Clear the title input field
+            renderComments();
+
+            // Hide the modal after posting
+            commentModal.style.display = "none";
+        }
+    });
+            const addCommentButton = document.querySelector(".add-comment-button");
+    
+    const closeBtn = document.querySelector(".close");
+    
+    addCommentButton.addEventListener("click", () => {
+        commentModal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+        commentModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target == commentModal) {
+            commentModal.style.display = "none";
+        }
+    });
+
+    addCommentButton.addEventListener("click", () => {
+        commentModal.style.display = "block";
+    });
+
+    closeBtn.addEventListener("click", () => {
+        commentModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (event) => {
+        if (event.target == commentModal) {
+            commentModal.style.display = "none";
+        }
+    });
+
         });
+
+        
     </script>
 
     <div id="commentModal" class="modal">
@@ -170,11 +230,12 @@
         </div>
     </div>
 
-    <div class="add-comment-button">
+    <div class="add-comment-button" >
         <i class="fas fa-plus"></i>
     </div>
 
     <img src="../../images/clouds-1.svg" alt="image" class="home_cloud-1">
     <img src="../../images/clouds-2.svg" alt="image" class="home_cloud-2">
+    
 </body>
 </html>

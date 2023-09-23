@@ -60,6 +60,8 @@
          </section>
 
          <script>
+            // Function to show a custom modal with a message
+
             // Function to handle user login
             
             function login() {
@@ -92,7 +94,13 @@
             const loginButton = document.querySelector('.submit');
             loginButton.addEventListener('click', login);
          </script>
-      
+
+      <div id="custom-modal" class="modal">
+         <div class="modal-content">
+           <span class="close">&times;</span>
+           <p id="modal-text"></p>
+         </div>
+       </div>
    </body>
 </html>
 
