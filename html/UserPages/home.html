@@ -238,7 +238,6 @@
                 if (index !== -1) {
                   removeModuleFromLocalStorage(title + "-" + body);
                   updateScrollableContainer();
-                  
                 }
               }
             });
@@ -392,7 +391,7 @@
               alert(`Module "${moduleTitle}" added to your list.`);
 
               const localStorageData = JSON.parse(localStorage.getItem('users'));
-            console.log('Local Storage Contents:', localStorageData);
+              console.log('Local Storage Contents:', localStorageData);
 
             
             } else {
@@ -421,9 +420,11 @@
           const user = users[userIndex];
           const modules = user.modules;
 
-
-          
           // Create and display cards for each module
+
+          const scrollableDiv = document.getElementByClass('scrollable-card-container');
+          scrollableDiv.innerHTML = "";
+
           modules.forEach((moduleTitle) => {
             const module = moduleTitle.split('-');
             if (module.length === 2) {
