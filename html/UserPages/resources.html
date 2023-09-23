@@ -63,10 +63,11 @@
                 //to do
                 if(loggedInUser.modules == '')
                 {
-                   const html = `<div style = "backgroundColor: orange">No modules added</div>`;
+                   const html = `<div>No modules added</div>`;
                    const modulesContainer = document.getElementById('modulesContainer');
 
                    modulesContainer.innerHTML = html;
+                   console.log(modulesContainer.innerHTML);
                 }
 
                 if (loggedInUser !==-1 && loggedInUser.modules) {

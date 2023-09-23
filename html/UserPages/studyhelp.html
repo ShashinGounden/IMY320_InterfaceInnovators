@@ -76,15 +76,30 @@
         // Function to create and populate course cards
        // Function to create and populate course cards
 function populateCourseCards() {
-    const courseList = document.querySelector(".course-list");
 
-    courseData.forEach(course => {
+    const localStorageData = JSON.parse(localStorage.getItem('users'));
+    const loggedInUsername = localStorage.getItem('loggedInUsername');
+
+
+    if (localStorageData && loggedInUsername) 
+    {
+    
+    const loggedInUser = localStorageData.find(user => user.username === loggedInUsername);
+
+    if (loggedInUser !==-1 && loggedInUser.modules) 
+    {
+       
+        const arrayOfModules = Array.from(loggedInUser.modules);
+        console.log(arrayOfModules)
+        const courseList = document.querySelector(".course-list");
+
+        arrayOfModules.forEach(course => {
         const card = document.createElement("div");
         card.classList.add("course-card");
-        card.setAttribute("data-course", course.name);
-
+        card.setAttribute("data-course", course);
+        console.log(course);
         const h2 = document.createElement("h2");
-        h2.textContent = course.name;
+        h2.textContent = course.split("-")[0];
 
         const br1 = document.createElement("br"); // Add a line break after the course title
 
@@ -95,12 +110,7 @@ function populateCourseCards() {
         const br2 = document.createElement("br"); // Add a line break after the "Top Advice:" title
 
         const adviceList = document.createElement("ul"); // Use an ordered list for numbered advice
-        course.advice.forEach((advice, index) => {
-            const li = document.createElement("li");
-            li.textContent = `${index + 1}. ${advice}`; // Prepend advice with the number
-            adviceList.appendChild(li);
-            li.style.padding = "5px"; // Adjust the margin as needed
-        });
+        
 
         // Add padding/margin between advice list items (li elements)
         
@@ -118,17 +128,28 @@ function populateCourseCards() {
 
         card.addEventListener("click", () => {
             // Redirect to adviceSection.html with the course name as a query parameter
-            window.location.href = `adviceSection.html?course=${encodeURIComponent(course.name)}`;
+            window.location.href = `adviceSection.html?course=${encodeURIComponent(course)}`;
         });
 
         courseList.appendChild(card);
     });
+                   
+    }
+
+
+}
+
+    
 }
 
 
         // Call the function to populate course cards
+        window.onload = function() {
         populateCourseCards();
+        }
     </script>
+
+    
 
 
    
