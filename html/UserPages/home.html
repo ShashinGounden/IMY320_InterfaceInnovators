@@ -108,7 +108,7 @@
             </div>
             <br>
 
-            <div class="scrollable-card-container">
+            <div class="scrollable-card-container" id="scrollable-card-container">
 
               <!--<div class="card custom-card text-center">
                 <div class="card-body">
@@ -197,61 +197,107 @@
           
         ];
 
-        // Function to create a card
-        function createCard(title, body) {
-            const card = document.createElement('div');
-            card.classList.add('card');
-            card.classList.add('custom-card');
-            card.classList.add('text-center');
-            card.innerHTML = `
-              <div class="card-body" >
-                  <h5 class="card-title" style="color:rgb(158, 77, 234);">${title}</h5>
-                  <p class="card-text">${body}</p>
-                  <a href="#" class="btn" style = "border-radius: 20px;background: linear-gradient(to right, #9C27B0, #E040FB); color:white; ">Add</a>
-              </div>
+        const selectedCards = [];
+
+        // Function to create a card with a Remove button
+        function createCard(title, body, isSaved = false) {
+          const card = document.createElement('div');
+          card.classList.add('card');
+          card.classList.add('custom-card');
+          card.classList.add('text-center');
+          card.innerHTML = `
+            <div class="card-body">
+                <h5 class="card-title" style="color:rgb(158, 77, 234);">${title}</h5>
+                <p class="card-text">${body}</p>
             </div>
-            `;
-            return card;
+          </div>`;
+
+          if (isSaved) {
+            const removeButton = document.createElement('a');
+            removeButton.href = '#';
+            removeButton.className = 'btn btn-danger';
+            removeButton.style.borderRadius = '20px';
+            removeButton.textContent = 'Remove';
+
+            // Add an event listener to the "Remove" button
+            removeButton.addEventListener('click', () => {
+              // Remove the selected card from the array and update the scrollable container
+              const index = selectedCards.findIndex((cardData) => cardData.title === title);
+              if (index !== -1) {
+                selectedCards.splice(index, 1);
+                updateScrollableContainer();
+              }
+            });
+
+            card.querySelector('.card-body').appendChild(removeButton);
+          } else {
+            const addButton = document.createElement('button');
+            addButton.className = 'btn add-button';
+            addButton.style.borderRadius = '20px';
+            addButton.style.background = 'linear-gradient(to right, #9C27B0, #E040FB)';
+            addButton.style.color = 'white';
+            addButton.textContent = 'Add';
+
+            // Add an event listener to the "Add" button
+            addButton.addEventListener('click', () => {
+              // Add the selected card to the array and update the scrollable container
+              selectedCards.push({ title, body });
+              updateScrollableContainer();
+            });
+
+            card.querySelector('.card-body').appendChild(addButton);
+          }
+
+          return card;
+        }
+
+        // Function to update the scrollable container with selected cards
+        function updateScrollableContainer() {
+          const scrollableContainer = document.getElementById('scrollable-card-container');
+          scrollableContainer.innerHTML = '';
+
+          // Display selected cards in the scrollable container
+          selectedCards.forEach((cardData) => {
+            const card = createCard(cardData.title, cardData.body, true);
+            scrollableContainer.appendChild(card);
+          });
         }
 
         // Function to filter and display cards based on the search query
         function displaySearchResults(query) {
-            const cardContainer = document.querySelector('.scrollable-card-container');
-            cardContainer.innerHTML = ''; // Clear previous cards
+          const cardContainer = document.querySelector('.scrollable-card-container');
+          cardContainer.innerHTML = ''; // Clear previous cards
 
-            if (query.trim() === '') {
-              return; // Don't display any cards if the query is empty
+          if (query.trim() === '') {
+            // If the search bar is empty, display the saved cards
+            updateScrollableContainer();
+            return;
+          }
+
+          jsonData.forEach((item) => {
+            console.log('search');
+            if (item.title.toLowerCase().includes(query.toLowerCase())) {
+              const card = createCard(item.title, item.body);
+              cardContainer.appendChild(card);
             }
-            
-            jsonData.forEach(item => {
-              console.log("search");
-                if (item.title.toLowerCase().includes(query.toLowerCase())) {
-                    const card = createCard(item.title, item.body);
-                    cardContainer.appendChild(card);
-                    
-                }
-            });
+          });
         }
 
-      
         document.addEventListener('DOMContentLoaded', function () {
-            const searchInput = document.getElementById('search-id');
-            
-            if (searchInput) { 
-                searchInput.addEventListener('input', () => {
-                  const searchInput = document.getElementById('search-id');
+          const searchInput = document.getElementById('search-id');
 
-                  // Add input event listener for live search
-                  searchInput.addEventListener('input', () => {
-                      const query = searchInput.value.trim();
-                      displaySearchResults(query);
-                  });
-                });
-            } else {
-                console.error("Element with ID 'search-id' not found.");
-            }
-            
-            // Other JavaScript code can go here.
+          if (searchInput) {
+            // Add input event listener for live search
+            searchInput.addEventListener('input', () => {
+              const query = searchInput.value.trim();
+              displaySearchResults(query);
+            });
+          } else {
+            console.error("Element with ID 'search-id' not found.");
+          }
+
+          // Initial display of saved cards
+          updateScrollableContainer();
         });
     </script>
 
