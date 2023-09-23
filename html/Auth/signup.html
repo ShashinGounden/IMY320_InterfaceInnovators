@@ -62,30 +62,30 @@
            
             // Function to handle user sign-up and data storage
             function signUp() {
-   const username = document.querySelector('.un').value;
-   const password = document.querySelector('.pass').value;
-   const confirmPassword = document.querySelectorAll('.pass')[1].value;
-   const name = "";
-   const surname = "";
-   const university = ""; // Add this line
-   const yearofstudy = ""; // Add this line
-   const modules = [];
+            const username = document.querySelector('.un').value;
+            const password = document.querySelector('.pass').value;
+            const confirmPassword = document.querySelectorAll('.pass')[1].value;
+            const name = "";
+            const surname = "";
+            const university = ""; // Add this line
+            const yearofstudy = ""; // Add this line
+            const modules = [];
 
-   if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-   }
+            if (password !== confirmPassword) {
+               alert("Passwords do not match");
+               return;
+            }
 
-   // Create a user object
-   const user = {
-      username,
-      password,
-      name,
-      surname,
-      university, // Add this line
-      yearofstudy, // Add this line
-      modules,
-   };
+            // Create a user object
+            const user = {
+               username,
+               password,
+               name,
+               surname,
+               university, // Add this line
+               yearofstudy, // Add this line
+               modules,
+            };
 
    // Get existing users from Local Storage or initialize an empty array
    let users = JSON.parse(localStorage.getItem('users')) || [];
