@@ -128,11 +128,9 @@ function populateCourseCards() {
         card.appendChild(adviceList);
         card.appendChild(clickForMore); // Add "click for more" text
 
-        card.addEventListener("click", () => {
-            // Redirect to adviceSection.html with the course name as a query parameter
-            window.location.href = `adviceSection.html?course=${encodeURIComponent(course)}`;
-        });
-
+        const courseName = encodeURIComponent(course);
+    window.location.href = `adviceSection.html?course=${courseName}`;
+    
         courseList.appendChild(card);
     });
                    

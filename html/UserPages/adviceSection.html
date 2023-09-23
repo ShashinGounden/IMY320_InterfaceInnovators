@@ -32,188 +32,138 @@
             </div>
         </nav>
 
-
-
         <main class="main">
-            <section class="study-help">
-
-        <div class="home_images">
-            <img src="../../images/points-space.svg" alt="image" class="home_points">
-            <img src="../../images/planet.svg" alt="image" class="home_planet-2">
-            <img src="../../images/planet.svg" alt="image" class="home_planet-1">
-           
-         </div>
+            <section class="study-help" >
+                <div class="home_images">
+                    <img src="../../images/points-space.svg" alt="image" class="home_points">
+                    <img src="../../images/planet.svg" alt="image" class="home_planet-2">
+                    <img src="../../images/planet.svg" alt="image" class="home_planet-1">
+                </div>
                 <div class="title_rocket">
-                    
-                    <h2>Trending Advice for IMY 320</h2>
+                    <h2 id="trending_heading">Trending Advice for IMY 320</h2>
                     <img src="../../images/rocket.svg" alt="image" class="home_rocket">
                 </div>
-                
-                <div class="comments-list">
+                <div class="comments-list" id="modulesContainer">
                     <!-- Comments will be dynamically added here -->
                 </div>
             </section>
         </main>
 
-    <script>// JavaScript for interacting with comments
+    <script>
+        // JavaScript for interacting with comments
+        function getQueryParam(parameterName) {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            return urlParams.get(parameterName);
+        }
+
+        // Usage: Get the course name from the URL
+        const courseName = getQueryParam("course");
+
+        const trendingHeading = document.getElementById("trending_heading");
+        trendingHeading.innerHTML = "Trending advice for " + courseName.split("-")[0];
+
+        // Initialize userActions from local storage or an empty object
+        const userActions = localStorage.getItem('userActions') ? JSON.parse(localStorage.getItem('userActions')) : {};
 
         // Dummy data for comments (replace with your own logic to fetch comments from a server)
         const commentsData = [
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1"},
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1" },
             { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 2" },
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 3"},
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 3" },
             { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 4" },
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 5"},
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 5" },
             { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 6" },
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 7"},
+            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 7" },
             { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 8" },
         ];
-        
-    function renderComments() {
-    const commentsList = document.querySelector(".comments-list");
-    commentsList.innerHTML = ""; // Clear the existing comments
 
-    // Sort comments by upvotes in descending order
-    const sortedComments = commentsData.slice().sort((a, b) => b.upvotes - a.upvotes);
+        function renderComments() {
+            const commentsList = document.querySelector(".comments-list");
+            commentsList.innerHTML = ""; // Clear the existing comments
 
-    sortedComments.forEach((comment, index) => {
-        const commentElement = document.createElement("div");
-        commentElement.classList.add("comment");
-        commentElement.innerHTML = `
-            <div class="comment-card">
-                <div class="comment-title">${comment.title}</div>
-                <div class="comment-text">${comment.text}</div>
-            </div>
-            <div class="comment-votes">
-                <span class="upvote" onclick="upvoteComment('${comment.title}')"><i class="fas fa-arrow-up"> Upvote</i> (${comment.upvotes})</span>
-<br />
-<br />
-<span class="downvote" onclick="downvoteComment('${comment.title}')"><i class="fas fa-arrow-down"> Downvote</i> (${comment.downvotes})</span>
+            // Sort comments by upvotes in descending order
+            const sortedComments = commentsData.slice().sort((a, b) => b.upvotes - a.upvotes);
 
-</div>
+            sortedComments.forEach((comment, index) => {
+                const commentElement = document.createElement("div");
+                commentElement.classList.add("comment");
 
-        `;
+                const userAction = userActions[comment.title];
 
-        commentsList.appendChild(commentElement);
-    });
-}
+                commentElement.innerHTML = `
+                    <div class="comment-card">
+                        <div class="comment-title">${comment.title}</div>
+                        <div class="comment-text">${comment.text}</div>
+                    </div>
+                    <div class="comment-votes">
+                        <span class="upvote" onclick="toggleVote('${comment.title}', 'upvote')"><i class="fas fa-arrow-up"> Upvote</i> (${comment.upvotes})</span>
+                        <br />
+                        <br />
+                        <span class="downvote" onclick="toggleVote('${comment.title}', 'downvote')"><i class="fas fa-arrow-down"> Downvote</i> (${comment.downvotes})</span>
+                    </div>
+                `;
 
+                commentsList.appendChild(commentElement);
+            });
+        }
 
-        
-function upvoteComment(commentTitle) {
-    const comment = commentsData.find(comment => comment.title === commentTitle);
-    if (comment) {
-        comment.upvotes++;
-        renderComments();
-    }
-}
+        function toggleVote(commentTitle, voteType) {
+            const comment = commentsData.find(comment => comment.title === commentTitle);
+            const userAction = userActions[comment.title];
 
-function downvoteComment(commentTitle) {
-    const comment = commentsData.find(comment => comment.title === commentTitle);
-    if (comment) {
-        comment.downvotes++;
-        renderComments();
-    }
-}
-        
+            if (comment) {
+                if (userAction !== voteType) {
+                    // If the user hasn't voted or voted in the opposite direction, toggle the vote
+                    if (voteType === 'upvote') {
+                        comment.upvotes++;
+                        if (userAction === 'downvote') comment.downvotes--;
+                    } else if (voteType === 'downvote') {
+                        comment.downvotes++;
+                        if (userAction === 'upvote') comment.upvotes--;
+                    }
+                    userActions[commentTitle] = voteType; // Set the user action to the new vote
+                } else {
+                    // If the user already voted in the same direction, remove the vote
+                    if (voteType === 'upvote') {
+                        comment.upvotes--;
+                    } else if (voteType === 'downvote') {
+                        comment.downvotes--;
+                    }
+                    userActions[commentTitle] = ''; // Set the user action to neutral
+                }
+
+                localStorage.setItem('userActions', JSON.stringify(userActions)); // Update local storage
+                renderComments();
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", () => {
             renderComments();
-        
-            const submitButton = document.getElementById("submit-comment");
-    const commentTitle = document.getElementById("comment-title");
-    const commentText = document.getElementById("comment-text");
-
-    submitButton.addEventListener("click", (event) => {
-        event.preventDefault(); // Prevent form submission
-
-        const newCommentTitle = commentTitle.value.trim();
-        const newCommentText = commentText.value.trim();
-
-        if (newCommentTitle !== "" && newCommentText !== "") {
-            commentsData.push({
-                title: newCommentTitle,
-                text: newCommentText,
-                upvotes: 0,
-                downvotes: 0
-            });
-            commentTitle.value = ""; // Clear the title input field
-            commentText.value = ""; // Clear the text input field
-            commentModal.style.display = "none"; // Close the modal
-            renderComments();
-        }
-    });
-
-    const addCommentButton = document.querySelector(".add-comment-button");
-    const commentModal = document.getElementById("commentModal");
-    const closeBtn = document.querySelector(".close");
-
-    addCommentButton.addEventListener("click", () => {
-        commentModal.style.display = "block";
-    });
-
-    closeBtn.addEventListener("click", () => {
-        commentModal.style.display = "none";
-    });
-
-    window.addEventListener("click", (event) => {
-        if (event.target == commentModal) {
-            commentModal.style.display = "none";
-        }
-    });
-    
-    addCommentButton.addEventListener("click", () => {
-        commentModal.style.display = "block";
-    });
-
-    closeBtn.addEventListener("click", () => {
-        commentModal.style.display = "none";
-    });
-
-    window.addEventListener("click", (event) => {
-        if (event.target == commentModal) {
-            commentModal.style.display = "none";
-        }
-    });
-
-    addCommentButton.addEventListener("click", () => {
-        commentModal.style.display = "block";
-    });
-
-    closeBtn.addEventListener("click", () => {
-        commentModal.style.display = "none";
-    });
-
-    window.addEventListener("click", (event) => {
-        if (event.target == commentModal) {
-            commentModal.style.display = "none";
-        }
-    });
-
         });
-        </script> <!-- Create a JavaScript file for interaction -->
-        <div id="commentModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h2>Add your advice</h2>
-                <form id="comment-form" class="comment-form">
-                    <div>
+    </script>
+
+    <div id="commentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add your advice</h2>
+            <form id="comment-form" class="comment-form">
+                <div>
                     <div>Title: </div>
                     <input type="text" id="comment-title" placeholder="Example Title" required>
                 </div>
                 <div>Advice: </div>
-                    <textarea id="comment-text" placeholder="Write your advice here..." required></textarea>
-                    <button id="submit-comment" type="submit" style="color:white;">Post Advice</button>
-                </form>
-            </div>
+                <textarea id="comment-text" placeholder="Write your advice here..." required></textarea>
+                <button id="submit-comment" type="submit" style="color:white;">Post Advice</button>
+            </form>
         </div>
+    </div>
 
-        <div class="add-comment-button">
-            <i class="fas fa-plus"></i>
-        </div>
+    <div class="add-comment-button">
+        <i class="fas fa-plus"></i>
+    </div>
 
-        
-      
-      <img src="../../images/clouds-1.svg" alt="image" class="home_cloud-1">
-      <img src="../../images/clouds-2.svg" alt="image" class="home_cloud-2">
+    <img src="../../images/clouds-1.svg" alt="image" class="home_cloud-1">
+    <img src="../../images/clouds-2.svg" alt="image" class="home_cloud-2">
 </body>
 </html>
