@@ -299,6 +299,39 @@
           // Initial display of saved cards
           updateScrollableContainer();
         });
+
+        //add modules to logged in users module list
+        function addModule(moduleTitle) {
+  // Retrieve the user data from Local Storage
+  const loggedInUsername = localStorage.getItem('loggedInUsername');
+  let users = JSON.parse(localStorage.getItem('users')) || [];
+
+  // Find the logged-in user in the array
+  const userIndex = users.findIndex(user => user.username === loggedInUsername);
+
+  if (userIndex !== -1) {
+    // Check if the module already exists in the user's module list
+    const user = users[userIndex];
+    if (!user.modules.includes(moduleTitle)) {
+      // Add the module to the user's module list
+      user.modules.push(moduleTitle);
+
+      // Save the updated user data back to Local Storage
+      localStorage.setItem('users', JSON.stringify(users));
+
+      alert(`Module "${moduleTitle}" added to your list.`);
+
+      const localStorageData = JSON.parse(localStorage.getItem('users'));
+    console.log('Local Storage Contents:', localStorageData);
+    } else {
+      alert(`Module "${moduleTitle}" is already in your list.`);
+    }
+  } else {
+    alert('User not found.');
+  }
+}
+
+        
     </script>
 
     
