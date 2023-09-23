@@ -58,20 +58,7 @@
 
     <script>
         // Mock course data
-        const courseData = [
-            { name: "IMY 320", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
-            { name: "COS 301", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
-            { name: "COS 333", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
-            // Add more course data here
-            { name: "COS 111", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
-            { name: "COS 212", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
-            { name: "COS 110", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
-
-            { name: "IMY 320", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
-            { name: "COS 301", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
-            { name: "COS 333", advice: ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"] },
-            
-        ];
+        const advice = ["Exam Chapters to skip", "Semester Test 1 focus", "Unimportant chapters"]  ;
 
         // Function to create and populate course cards
        // Function to create and populate course cards
@@ -110,7 +97,12 @@ function populateCourseCards() {
         const br2 = document.createElement("br"); // Add a line break after the "Top Advice:" title
 
         const adviceList = document.createElement("ul"); // Use an ordered list for numbered advice
-        
+        advice.forEach((advice, index) => { // Iterate through the advice array
+            const li = document.createElement("li");
+            li.textContent = `${index + 1}. ${advice}`;
+            adviceList.appendChild(li);
+            li.style.padding = "5px";
+        });
 
         // Add padding/margin between advice list items (li elements)
         
