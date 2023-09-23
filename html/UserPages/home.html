@@ -220,14 +220,49 @@
             removeButton.textContent = 'Remove';
 
             // Add an event listener to the "Remove" button
-            removeButton.addEventListener('click', () => {
-              // Remove the selected card from the array and update the scrollable container
-              const index = selectedCards.findIndex((cardData) => cardData.title === title);
-              if (index !== -1) {
-                selectedCards.splice(index, 1);
-                updateScrollableContainer();
-              }
-            });
+           // Modify the event listener for the "Remove" button
+removeButton.addEventListener('click', () => {
+  // Remove the selected card from the array and update the scrollable container
+  const index = selectedCards.findIndex((cardData) => cardData.title === title);
+  if (index !== -1) {
+    selectedCards.splice(index, 1);
+    updateScrollableContainer();
+    
+    // Remove the module from the user's module list in Local Storage
+    removeModuleFromLocalStorage(title + "-" + body);
+  }
+});
+
+// Function to remove a module from Local Storage
+      function removeModuleFromLocalStorage(moduleTitle) {
+        const loggedInUsername = localStorage.getItem('loggedInUsername');
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Find the logged-in user in the array
+        const userIndex = users.findIndex((user) => user.username === loggedInUsername);
+
+        if (userIndex !== -1) {
+          // Check if the module exists in the user's module list
+          const user = users[userIndex];
+          const moduleIndex = user.modules.indexOf(moduleTitle);
+          
+          if (moduleIndex !== -1) {
+            // Remove the module from the user's module list
+            user.modules.splice(moduleIndex, 1);
+            
+            // Update the user's data in Local Storage
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Log a message to indicate successful removal
+            console.log(`Module "${moduleTitle}" removed from user's module list.`);
+          } else {
+            console.log(`Module "${moduleTitle}" not found in user's module list.`);
+          }
+        } else {
+          console.log('User not found.');
+        }
+      }
+
 
             card.querySelector('.card-body').appendChild(removeButton);
           } else {
@@ -238,6 +273,7 @@
             addButton.style.background = 'linear-gradient(to right, #9C27B0, #E040FB)';
             addButton.style.color = 'white';
             addButton.textContent = 'Add';
+
 
             // Add an event listener to the "Add" button
             addButton.addEventListener('click', () => {
