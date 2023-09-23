@@ -146,7 +146,6 @@
 
       </div>
 
-
       <script>
         // JSON data
         const jsonData = [
@@ -221,50 +220,67 @@
 
             // Add an event listener to the "Remove" button
            // Modify the event listener for the "Remove" button
-removeButton.addEventListener('click', () => {
-  // Remove the selected card from the array and update the scrollable container
-  const index = selectedCards.findIndex((cardData) => cardData.title === title);
-  if (index !== -1) {
-    selectedCards.splice(index, 1);
-    updateScrollableContainer();
-    
-    // Remove the module from the user's module list in Local Storage
-    removeModuleFromLocalStorage(title + "-" + body);
-  }
-});
+            removeButton.addEventListener('click', () => {
+              const loggedInUsername = localStorage.getItem('loggedInUsername');
+              let users = JSON.parse(localStorage.getItem('users')) || [];
 
-// Function to remove a module from Local Storage
-      function removeModuleFromLocalStorage(moduleTitle) {
-        const loggedInUsername = localStorage.getItem('loggedInUsername');
-        let users = JSON.parse(localStorage.getItem('users')) || [];
+              // Find the logged-in user in the array
+              const userIndex = users.findIndex((user) => user.username === loggedInUsername);
 
-        // Find the logged-in user in the array
-        const userIndex = users.findIndex((user) => user.username === loggedInUsername);
-
-        if (userIndex !== -1) {
-          // Check if the module exists in the user's module list
-          const user = users[userIndex];
-          const moduleIndex = user.modules.indexOf(moduleTitle);
-          
-          if (moduleIndex !== -1) {
-            // Remove the module from the user's module list
-            user.modules.splice(moduleIndex, 1);
+              if (userIndex !== -1) {
+                const user = users[userIndex];
+                const modules = user.modules;
+                
+                const moduleTitleToRemove = `${title}-${body}`;
             
-            // Update the user's data in Local Storage
-            localStorage.setItem('users', JSON.stringify(users));
+                const index = modules.findIndex((moduleTitle) => moduleTitle === moduleTitleToRemove);
+                console.log(index);
+                if (index !== -1) {
+                  removeModuleFromLocalStorage(title + "-" + body);
+                  updateScrollableContainer();
+                  
+                }
+              }
+            });
+
+        // Function to remove a module from Local Storage
+        function removeModuleFromLocalStorage(moduleTitle) {
+
+          console.log("remove ran");
+          const loggedInUsername = localStorage.getItem('loggedInUsername');
+          let users = JSON.parse(localStorage.getItem('users')) || [];
+
+          // Find the logged-in user in the array
+          const userIndex = users.findIndex((user) => user.username === loggedInUsername);
+
+          if (userIndex !== -1) {
+            // Check if the module exists in the user's module list
+            const user = users[userIndex];
+            const moduleIndex = user.modules.indexOf(moduleTitle);
             
-            // Log a message to indicate successful removal
-            console.log(`Module "${moduleTitle}" removed from user's module list.`);
+            if (moduleIndex !== -1) {
+                // Remove the module from the user's module list
+                user.modules.splice(moduleIndex, 1);
+                
+                // Update the user's data in Local Storage
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                // Log a message to indicate successful removal
+                console.log(`Module "${moduleTitle}" removed from user's module list.`);
+                const localStorageData = JSON.parse(localStorage.getItem('users'));
+                console.log('Local Storage Contents:', localStorageData);
+              } else {
+                console.log(`Module "${moduleTitle}" not found in user's module list.`);
+                const localStorageData = JSON.parse(localStorage.getItem('users'));
+                console.log('Local Storage Contents:', localStorageData);
+            }
           } else {
-            console.log(`Module "${moduleTitle}" not found in user's module list.`);
+            console.log('User not found.');
           }
-        } else {
-          console.log('User not found.');
         }
-      }
 
 
-            card.querySelector('.card-body').appendChild(removeButton);
+          card.querySelector('.card-body').appendChild(removeButton);
           } else {
             const addButton = document.createElement('button');
             addButton.className = 'btn add-button';
@@ -291,15 +307,32 @@ removeButton.addEventListener('click', () => {
 
         // Function to update the scrollable container with selected cards
         function updateScrollableContainer() {
-          const scrollableContainer = document.getElementById('scrollable-card-container');
-          scrollableContainer.innerHTML = '';
+        const scrollableContainer = document.getElementById('scrollable-card-container');
+        scrollableContainer.innerHTML = '';
 
-          // Display selected cards in the scrollable container
-          selectedCards.forEach((cardData) => {
-            const card = createCard(cardData.title, cardData.body, true);
-            scrollableContainer.appendChild(card);
+        // Retrieve the user data from Local Storage
+        const loggedInUsername = localStorage.getItem('loggedInUsername');
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Find the logged-in user in the array
+        const userIndex = users.findIndex((user) => user.username === loggedInUsername);
+
+        if (userIndex !== -1) {
+          const user = users[userIndex];
+          const modules = user.modules;
+
+          // Create and display cards for each module
+          modules.forEach((moduleTitle) => {
+            const module = moduleTitle.split('-');
+            if (module.length === 2) {
+              const title = module[0];
+              const body = module[1];
+              const card = createCard(title, body, true);
+              scrollableContainer.appendChild(card);
+            }
           });
         }
+      }
 
         // Function to filter and display cards based on the search query
         function displaySearchResults(query) {
@@ -338,41 +371,73 @@ removeButton.addEventListener('click', () => {
           updateScrollableContainer();
         });
 
-        function addModule(moduleTitle) 
-        {
-            // Retrieve the user data from Local Storage
-            const loggedInUsername = localStorage.getItem('loggedInUsername');
-            let users = JSON.parse(localStorage.getItem('users')) || [];
+        function addModule(moduleTitle){
+          // Retrieve the user data from Local Storage
+          const loggedInUsername = localStorage.getItem('loggedInUsername');
+          let users = JSON.parse(localStorage.getItem('users')) || [];
 
-            // Find the logged-in user in the array
-            const userIndex = users.findIndex(user => user.username === loggedInUsername);
+          // Find the logged-in user in the array
+          const userIndex = users.findIndex(user => user.username === loggedInUsername);
 
-            if (userIndex !== -1) {
-              // Check if the module already exists in the user's module list
-              const user = users[userIndex];
-              if (!user.modules.includes(moduleTitle)) {
-                // Add the module to the user's module list
-                user.modules.push(moduleTitle);
+          if (userIndex !== -1) {
+            // Check if the module already exists in the user's module list
+            const user = users[userIndex];
+            if (!user.modules.includes(moduleTitle)) {
+              // Add the module to the user's module list
+              user.modules.push(moduleTitle);
 
-                // Save the updated user data back to Local Storage
-                localStorage.setItem('users', JSON.stringify(users));
+              // Save the updated user data back to Local Storage
+              localStorage.setItem('users', JSON.stringify(users));
 
-                alert(`Module "${moduleTitle}" added to your list.`);
+              alert(`Module "${moduleTitle}" added to your list.`);
 
-                const localStorageData = JSON.parse(localStorage.getItem('users'));
-              console.log('Local Storage Contents:', localStorageData);
-              } else {
-                alert(`Module "${moduleTitle}" is already in your list.`);
-              }
+              const localStorageData = JSON.parse(localStorage.getItem('users'));
+            console.log('Local Storage Contents:', localStorageData);
+
+            
             } else {
-              alert('User not found.');
+              alert(`Module "${moduleTitle}" is already in your list.`);
+              const localStorageData = JSON.parse(localStorage.getItem('users'));
+              
+              console.log('Local Storage Contents:', localStorageData);
             }
+          } else {
+            alert('User not found.');
           }
+        }
 
-    // Event listener for the "Add Module" button
-    const addModuleButton = document.getElementById('addModuleButton');
-    addModuleButton.addEventListener('click', addModule);
-    
+      // Event listener for the "Add Module" button
+      const addModuleButton = document.getElementById('addModuleButton');
+      addModuleButton.addEventListener('click', addModule);
+
+      function loadModulesFromLocalStorage() {
+        const loggedInUsername = localStorage.getItem('loggedInUsername');
+        let users = JSON.parse(localStorage.getItem('users')) || [];
+
+        // Find the logged-in user in the array
+        const userIndex = users.findIndex((user) => user.username === loggedInUsername);
+
+        if (userIndex !== -1) {
+          const user = users[userIndex];
+          const modules = user.modules;
+
+
+          
+          // Create and display cards for each module
+          modules.forEach((moduleTitle) => {
+            const module = moduleTitle.split('-');
+            if (module.length === 2) {
+            
+              const title = module[0];
+              const body = module[1];
+              const card = createCard(title, body, true);
+              const scrollableContainer = document.getElementById('scrollable-card-container');
+              scrollableContainer.appendChild(card);
+            }
+          });
+        }
+      }
+
     </script>
 
     
@@ -458,6 +523,7 @@ removeButton.addEventListener('click', () => {
                  document.getElementById('yearOfStudyInput').value = loggedInUser.yearofstudy;
               }
            }
+           loadModulesFromLocalStorage();
         };
      </script>
    </body>
