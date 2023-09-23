@@ -66,17 +66,28 @@
         // Initialize userActions from local storage or an empty object
         const userActions = localStorage.getItem('userActions') ? JSON.parse(localStorage.getItem('userActions')) : {};
 
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
         // Dummy data for comments (replace with your own logic to fetch comments from a server)
         const commentsData = [
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 1" },
-            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 2" },
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 3" },
-            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 4" },
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 5" },
-            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 6" },
-            { text: "This is a great study resource!", upvotes: 5, downvotes: 2, title: "Title 7" },
-            { text: "I found the materials very helpful.", upvotes: 3, downvotes: 1, title: "Title 8" },
+            { text: "Learn how to effectively manage your study time for maximum productivity", title: "Time Management" },
+            { text: "Discover different note-taking techniques to capture key information during lectures and reading.", title: "Note-Taking Strategies" },
+            { text: "Get tips on how to prepare and excel in exams through smart study techniques.", title: "Test Preparation" },
+            { text: "Manage study-related stress and maintain a healthy work-life balance..", title: "Stress Management" },
+            { text: "Enhance your reading skills to comprehend and retain information more efficiently.", title: "Effective Reading" },
+            { text: "Develop research skills to find reliable sources and gather information for assignments.", title: "Research Skills" },
+            { text: "Discover techniques to stay motivated and overcome procrastination in your studies.", title: "Motivation Boost" },
+            { text: "Explore the benefits of joining study groups and collaborating with classmates.", title: "Study Groups" },
         ];
+
+        // Generate random upvotes and downvotes for each comment
+        commentsData.forEach(comment => {
+            comment.upvotes = getRandomNumber(1, 20); // Generate a random number between 1 and 10 for upvotes
+            comment.downvotes = getRandomNumber(1, 10); // Generate a random number between 1 and 5 for downvotes
+        });
+
 
         function renderComments() {
             const commentsList = document.querySelector(".comments-list");
