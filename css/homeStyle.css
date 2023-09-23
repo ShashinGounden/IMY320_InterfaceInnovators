@@ -668,6 +668,7 @@ img {
   height: 100%;
   background-color: rgba(0,0,0,0.7); /* Semi-transparent background */
   z-index: 1;
+
 }
 
 /* Style the modal content */
@@ -675,10 +676,11 @@ img {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
-  border: 1px solid #888;
+  border-radius: 20px;
   width: 80%;
   max-width: 400px;
   position: relative;
+  text-align: center;
 }
 
 /* Style the close button */
@@ -688,6 +690,10 @@ img {
   right: 0;
   padding: 10px;
   cursor:pointer;
+}
+
+.close:hover{
+  color: #E040FB;
 }
 
 

@@ -13,7 +13,7 @@
       <header class="header" id="header">
          <nav class="nav container">
             <a href="../index.html" class="logo">
-                <i class="ri-school-line"></i> Study Sphere
+                <i class="ri-school-line"></i> Study Space
             </a>
 
             <div class="nav_bar" id="nav-menu">
@@ -43,8 +43,8 @@
                   <form class="form1">
                   <input class="un " type="text" align="center" placeholder="Email Address">
                   <input class="pass" type="password" align="center" placeholder="Password">
-                  <a class="submit" align="center">Login</a>
-                  <p class="forgot" align="center"><a href="./signup.html">Dont have an account? Sign up here</p>   
+                  <a class = "submit" align="center">Login</a>
+                  <div id="forgot"><p class="forgot" align="center"><a href="./signup.html">Dont have an account? Sign up here</p> </div> 
                </div>
  
                <div class="home_images">
@@ -60,8 +60,6 @@
          </section>
 
          <script>
-            // Function to show a custom modal with a message
-
             // Function to handle user login
             
             function login() {
@@ -84,23 +82,44 @@
 
                   window.location.href = '../UserPages/home.html';
                } else {
-                  alert('Invalid username or password');
+                  showCustomPopup('Invalid username or password');
                }
 }
-
-
       
             // Event listener for the login button
             const loginButton = document.querySelector('.submit');
             loginButton.addEventListener('click', login);
+
+            function showModal(message) {
+            const modal = document.getElementById('custom-modal');
+            const modalText = document.getElementById('modal-text');
+
+            modalText.textContent = message;
+            modal.style.display = 'block';
+
+            // Add an event listener to close the modal when the close button is clicked
+            const closeBtn = document.querySelector('.close');
+            closeBtn.addEventListener('click', hideModal);
+            }
+
+            // Function to hide the custom modal
+            function hideModal() {
+            const modal = document.getElementById('custom-modal');
+            modal.style.display = 'none';
+            }
+
+            // Example of showing a custom popup
+            function showCustomPopup(message) {
+            showModal(message);
+            }
          </script>
 
-      <div id="custom-modal" class="modal">
-         <div class="modal-content">
-           <span class="close">&times;</span>
-           <p id="modal-text"></p>
+         <div id="custom-modal" class="modal">
+            <div class="modal-content">
+            <p id="modal-text"></p>
+            <button class="profile-button" style="color:white" type="button" onclick="hideModal()">Okay</button>
+            </div>
          </div>
-       </div>
    </body>
 </html>
 

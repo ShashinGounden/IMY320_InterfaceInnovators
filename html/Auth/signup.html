@@ -13,7 +13,7 @@
       <header class="header" id="header">
          <nav class="nav container">
             <a href="../index.html" class="logo">
-                <i class="ri-school-line"></i> Study Sphere
+                <i class="ri-school-line"></i> Study Space
             </a>
 
             <div class="nav_bar" id="nav-menu">
@@ -43,8 +43,8 @@
                      <input class="un " type="text" align="center" placeholder="Email Address">
                      <input class="pass" type="password" align="center" placeholder="Password">
                      <input class="pass" type="password" align="center" placeholder="Confirm password">
-                     <a class="submit" align="center">Sign up</a>
-                     <p class="forgot" align="center"><a href="./login.html">Already have an account? Login here</p>         
+                     <div id="submit"><a class = "submit" align="center">Sign up</a></div>
+                     <div id = "forgot"><p class="forgot" align="center"><a href="./login.html">Already have an account? Login here </p></div>      
                </div>
  
                <div class="home_images">
@@ -73,9 +73,23 @@
             const modules = [];
 
             if (password !== confirmPassword) {
-               alert("Passwords do not match");
+               showCustomPopup("Passwords do not match");
+
                return;
             }
+
+            if (username == "")
+            {
+               showCustomPopup("Enter a username");
+               return;
+            }
+
+            if (password == "")
+            {
+               showCustomPopup("Enter a password");
+               return;
+            }
+
 
             // Create a user object
             const user = {
@@ -108,14 +122,44 @@
    window.location.href = '../UserPages/home.html';
 }
 
-            
-      
-            // Event listener for the sign-up button
-            const signUpButton = document.querySelector('.submit');
-            signUpButton.addEventListener('click', signUp);
+         // Event listener for the sign-up button
+         const signUpButton = document.querySelector('.submit');
+         signUpButton.addEventListener('click', signUp);
 
+         // Event listener for the login button
+         const loginButton = document.querySelector('.submit');
+         loginButton.addEventListener('click', login);
+
+         function showModal(message) {
+         const modal = document.getElementById('custom-modal');
+         const modalText = document.getElementById('modal-text');
+
+         modalText.textContent = message;
+         modal.style.display = 'block';
+
+         // Add an event listener to close the modal when the close button is clicked
+         const closeBtn = document.querySelector('.close');
+         closeBtn.addEventListener('click', hideModal);
+         }
+
+         // Function to hide the custom modal
+         function hideModal() {
+         const modal = document.getElementById('custom-modal');
+         modal.style.display = 'none';
+         }
+
+         // Example of showing a custom popup
+         function showCustomPopup(message) {
+         showModal(message);
+         }
 
          </script>
+         <div id="custom-modal" class="modal">
+            <div class="modal-content">
+            <p id="modal-text"></p>
+            <button class="profile-button" style ="color:white" type="button" onclick="hideModal()">Okay</button>
+            </div>
+         </div>
       
    </body>
 </html>
