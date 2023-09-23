@@ -79,118 +79,81 @@
             </div>
         </div>
 
-        <!--Module 2-->
-        <div class="module_container">
-            <div class="module-heading">
-                COS 301
-            </div>
-            <div class="card-container clearfix">
-                <div class="card">
-                    <div class="card_titles">
-                    <h3>Past Papers</h3>
-                    <div class="doc_list">
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Semester Test 1 - 2023 &#x2192;</a>
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Semester Test 2 - 2023 &#x2192;</a>
-                        <br>
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Class Test 1 - 2022 &#x2192;</a>
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Class Test 3 - 2023 &#x2192;</a>
-                    </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card_titles">
-                    <h3>Notes</h3>
-                    <a  class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 1 - Notes &#x2192;</a>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 2 - Notes &#x2192;</a>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 3 - Notes &#x2192;</a>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 4 - Notes &#x2192;</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card_titles">
-                    <h3>Other</h3>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Study Guide 2022 &#x2192;</a>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Software Development Life Cycle &#x2192;</a>
-                    </div>
-                </div>
-            </div>
+       
+          
         </div>
 
-        <!--Module 3-->
-        <div class="module_container">
-            <div class="module-heading">
-             COS 333
-            </div>
-            <div class="card-container clearfix">
-                <div class="card">
-                    <div class="card_titles">
-                    <h3>Past Papers</h3>
-                        <div class="doc_list">
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Semester Test 1 - 2023 &#x2192;</a>
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Semester Test 2 - 2023 &#x2192;</a>
-                        <br>
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Class Test 1 - 2022 &#x2192;</a>
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Class Test 3 - 2023 &#x2192;</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card_titles">
-                    <h3>Notes</h3>
-                    <a  class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 1 - Notes &#x2192;</a>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 2 - Notes &#x2192;</a>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 3 - Notes &#x2192;</a>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 4 - Notes &#x2192;</a>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 5 - Notes &#x2192;</a>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 6 - Notes &#x2192;</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card_titles">
-                    <h3>Other</h3>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Study Guide 2022 &#x2192;</a>
-                    <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Prolog User Manual &#x2192;</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
+    <script>
+       const localStorageData = JSON.parse(localStorage.getItem('users'));
+        console.log('Local Storage Contents:', localStorageData);
+        // Function to load and display modules and cards
+        function loadModulesFromLocalStorage() {
+            const localStorageData = JSON.parse(localStorage.getItem('users'));
+            const loggedInUsername = localStorage.getItem('loggedInUsername');
 
-        <!--module 4-->
-        <div class="module_container">
-            <div class="module-heading">
-            COS 330
-            </div>
-            <div class="card-container clearfix">
-                <div class="card">
-                    <div class="card_titles">
-                    <h3>Past Papers</h3>
-                        <div class="doc_list">
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Semester Test 1 - 2023 &#x2192;</a>
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Semester Test 2 - 2023 &#x2192;</a>
-                        <br>
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Class Test 1 - 2022 &#x2192;</a>
-                        <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Class Test 3 - 2023 &#x2192;</a>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_titles">
-                <h3>Notes</h3>
-                <a  class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 1 - Notes &#x2192;</a>
-                <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 2 - Notes &#x2192;</a>
-                <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 3 - Notes &#x2192;</a>
-                <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Lecture 4 - Notes &#x2192;</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card_titles">
-                <h3>Other</h3>
-                <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Study Guide 2022 &#x2192;</a>
-                <a class = "file_list" href="../resources/LecturerInstructions.pdf" target="_blank">Secure coding practices &#x2192;</a>
-                </div>
-            </div>
-        </div>
-    </div>
+            if (localStorageData && loggedInUsername) {
+                const loggedInUser = localStorageData.find(user => user.username === loggedInUsername);
+           
+
+                if (loggedInUser && loggedInUser.modules) {
+                   
+                    const modulesContainer = document.getElementsByClassName('resources_container');
+                    modulesContainer.innerHTML = ''; // Clear the container
+
+              
+
+                    loggedInUser.modules.forEach(module => {
+                        const moduleContainer = document.createElement('div');
+                        moduleContainer.classList.add('module_container');
+
+                        const moduleHeading = document.createElement('div');
+                        moduleHeading.classList.add('module-heading');
+                        moduleHeading.textContent = module.moduleCode;
+
+                        const cardContainer = document.createElement('div');
+                        cardContainer.classList.add('card-container', 'clearfix');
+
+                       
+
+                        //error starts here
+                        module.cards.forEach(card => {
+                            
+                            const cardDiv = document.createElement('div');
+                            cardDiv.classList.add('card');
+
+                            const cardTitles = document.createElement('div');
+                            cardTitles.classList.add('card_titles');
+                            cardTitles.innerHTML = `<h3>${card.title}</h3>`;
+
+                            card.files.forEach(file => {
+                                const fileLink = document.createElement('a');
+                                fileLink.classList.add('file_list');
+                                fileLink.href = file.link;
+                                fileLink.target = '_blank';
+                                fileLink.textContent = file.name + ' →';
+                                cardTitles.appendChild(fileLink);
+                            });
+
+                            cardDiv.appendChild(cardTitles);
+                            cardContainer.appendChild(cardDiv);
+                        });
+
+                        moduleContainer.appendChild(moduleHeading);
+                        moduleContainer.appendChild(cardContainer);
+                        modulesContainer.appendChild(moduleContainer);
+                    });
+                }
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = function() {
+            loadModulesFromLocalStorage();
+        };
+
+        
+    </script>
 
 </body>
 </html>

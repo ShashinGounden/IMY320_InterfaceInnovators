@@ -66,9 +66,9 @@
                 <label class="labels">University</label>
                 <select class="form-select" id="universityInput">
                   <option value="" selected>Select your university</option>
-                  <option value="University A">University A</option>
-                  <option value="University B">University B</option>
-                  <option value="University C">University C</option>
+                  <option value="University A">University Pretoria</option>
+                  <option value="University B">University of Capetown</option>
+                  <option value="University C">University Witswatersrand</option>
                   <!-- Add more universities as needed -->
                 </select>
               </div>
@@ -110,37 +110,8 @@
 
             <div class="scrollable-card-container" id="scrollable-card-container">
 
-              <!--<div class="card custom-card text-center">
-                <div class="card-body">
-                  <h5 class="card-title"  style="color:rgb(158, 77, 234);">IMY320</h5>
-                  <p class="card-text">Fuck this subject</p>
-                  <a href="#" class="btn btn-danger" style = "border-radius: 20px;">Remove</a>
-                </div>
-              </div>
-
-                <div class="card custom-card text-center">
-                  <div class="card-body">
-                    <h5 class="card-title"  style="color:rgb(158, 77, 234);">COS301</h5>
-                    <p class="card-text">Software Engineering</p>
-                    <a href="#" class="btn btn-danger" style = "border-radius: 20px;">Remove</a>
-                  </div>
-                </div>
-
-                <div class="card custom-card text-center">
-                  <div class="card-body">
-                    <h5 class="card-title"  style="color:rgb(158, 77, 234);">COS333</h5>
-                    <p class="card-text">Programming Languages</p>
-                    <a href="#" class="btn btn-danger" style = "border-radius: 20px;">Remove</a>
-                  </div>
-                </div>
-
-                <div class="card custom-card text-center">
-                  <div class="card-body">
-                    <h5 class="card-title"  style="color:rgb(158, 77, 234);">COS330</h5>
-                    <p class="card-text">Security and Ethics</p>
-                    <a href="#" class="btn btn-danger" style = "border-radius: 20px;">Remove</a>
-                  </div>
-                </div>-->
+              <!-- Subjects -->
+              
             </div>
         </div> 
 
@@ -187,11 +158,31 @@
           },
           {
             "title": "ENV101",
-            "body": "geography"
+            "body": "Geography"
           },
           {
-            "title": "SCI101",
-            "body": "science"
+            "title": "Phy321",
+            "body": "Physics"
+          },
+          {
+            "title": "BIO233",
+            "body": "Biology"
+          },
+          {
+            "title": "AUD221",
+            "body": "Audiology"
+          },
+          {
+            "title": "BOT310",
+            "body": "Botany"
+          },
+          {
+            "title": "EDU",
+            "body": "Educational Science"
+          },
+          {
+            "title": "MOS",
+            "body": "Many Hours"
           },
           
         ];
@@ -219,7 +210,7 @@
             removeButton.textContent = 'Remove';
 
             // Add an event listener to the "Remove" button
-           // Modify the event listener for the "Remove" button
+            // Modify the event listener for the "Remove" button
             removeButton.addEventListener('click', () => {
               const loggedInUsername = localStorage.getItem('loggedInUsername');
               let users = JSON.parse(localStorage.getItem('users')) || [];
@@ -242,44 +233,43 @@
               }
             });
 
-        // Function to remove a module from Local Storage
-        function removeModuleFromLocalStorage(moduleTitle) {
+            // Function to remove a module from Local Storage
+            function removeModuleFromLocalStorage(moduleTitle) {
 
-          console.log("remove ran");
-          const loggedInUsername = localStorage.getItem('loggedInUsername');
-          let users = JSON.parse(localStorage.getItem('users')) || [];
+              console.log("remove ran");
+              const loggedInUsername = localStorage.getItem('loggedInUsername');
+              let users = JSON.parse(localStorage.getItem('users')) || [];
 
-          // Find the logged-in user in the array
-          const userIndex = users.findIndex((user) => user.username === loggedInUsername);
+              // Find the logged-in user in the array
+              const userIndex = users.findIndex((user) => user.username === loggedInUsername);
 
-          if (userIndex !== -1) {
-            // Check if the module exists in the user's module list
-            const user = users[userIndex];
-            const moduleIndex = user.modules.indexOf(moduleTitle);
-            
-            if (moduleIndex !== -1) {
-                // Remove the module from the user's module list
-                user.modules.splice(moduleIndex, 1);
+              if (userIndex !== -1) {
+                // Check if the module exists in the user's module list
+                const user = users[userIndex];
+                const moduleIndex = user.modules.indexOf(moduleTitle);
                 
-                // Update the user's data in Local Storage
-                localStorage.setItem('users', JSON.stringify(users));
-                
-                // Log a message to indicate successful removal
-                console.log(`Module "${moduleTitle}" removed from user's module list.`);
-                const localStorageData = JSON.parse(localStorage.getItem('users'));
-                console.log('Local Storage Contents:', localStorageData);
+                  if (moduleIndex !== -1) {
+                      // Remove the module from the user's module list
+                      user.modules.splice(moduleIndex, 1);
+                      
+                      // Update the user's data in Local Storage
+                      localStorage.setItem('users', JSON.stringify(users));
+                      
+                      // Log a message to indicate successful removal
+                      console.log(`Module "${moduleTitle}" removed from user's module list.`);
+                      const localStorageData = JSON.parse(localStorage.getItem('users'));
+                      console.log('Local Storage Contents:', localStorageData);
+                    } else {
+                      console.log(`Module "${moduleTitle}" not found in user's module list.`);
+                      const localStorageData = JSON.parse(localStorage.getItem('users'));
+                      console.log('Local Storage Contents:', localStorageData);
+                  }
               } else {
-                console.log(`Module "${moduleTitle}" not found in user's module list.`);
-                const localStorageData = JSON.parse(localStorage.getItem('users'));
-                console.log('Local Storage Contents:', localStorageData);
+                console.log('User not found.');
+              }
             }
-          } else {
-            console.log('User not found.');
-          }
-        }
+            card.querySelector('.card-body').appendChild(removeButton);
 
-
-          card.querySelector('.card-body').appendChild(removeButton);
           } else {
             const addButton = document.createElement('button');
             addButton.className = 'btn add-button';
@@ -441,7 +431,6 @@
 
     </script>
 
-    
       <script>
         // Function to save user profile data
         const localStorageData = JSON.parse(localStorage.getItem('users'));
