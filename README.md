@@ -9,6 +9,8 @@
 |**Shiluvelo Makhubele** |u19086352 |
 |**Matthew Els** |u21715191 |
 
+Access of website here: https://explorestudyspace.netlify.app/
+
 # <a name="_page2_x70.00_y71.68"></a>Theme: Academic Support 
 The overarching theme of the academic support web app is to empower students at the University of Pretoria to excel in their studies by providing them with a comprehensive and personalised platform for academic success. 
 
