@@ -2,7 +2,9 @@
 
 # <a name="_page2_x70.00_y71.68"></a>Interface Innovators: Project Proposal 
 <br>
-# Access of website here: <a href = "https://explorestudyspace.netlify.app/"> https://explorestudyspace.netlify.app/ </a>
+
+<h1>Access our website here: <a href = "https://explorestudyspace.netlify.app/"> https://explorestudyspace.netlify.app/ </a></h1>
+
 <br>
 
 |**Team Members** |**Student Number** |
