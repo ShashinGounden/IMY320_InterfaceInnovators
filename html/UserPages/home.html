@@ -315,6 +315,15 @@
           const user = users[userIndex];
           const modules = user.modules;
 
+          if(modules == '')
+          {
+            const html = `<div><p style ="font-size:20px">Search to add modules</p></div>`;
+            const modulesContainer = document.getElementById('scrollable-card-container');
+
+            modulesContainer.innerHTML = html;
+            return;
+          }
+
           // Create and display cards for each module
           modules.forEach((moduleTitle) => {
             const module = moduleTitle.split('-');
