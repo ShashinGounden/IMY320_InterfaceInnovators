@@ -392,6 +392,8 @@
               // Save the updated user data back to Local Storage
               localStorage.setItem('users', JSON.stringify(users));
 
+              document.getElementById('search-id').value = '';
+              updateScrollableContainer();
               showModal(`Module "${moduleTitle}" added to your list.`);
 
               const localStorageData = JSON.parse(localStorage.getItem('users'));
@@ -399,6 +401,8 @@
 
             
             } else {
+              document.getElementById('search-id').value = '';
+              updateScrollableContainer();
               showModal(`Module "${moduleTitle}" is already in your list.`);
               const localStorageData = JSON.parse(localStorage.getItem('users'));
               
