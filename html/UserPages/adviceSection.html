@@ -93,34 +93,44 @@
 
 
         function renderComments() {
-            const commentsList = document.querySelector(".comments-list");
-            commentsList.innerHTML = ""; // Clear the existing comments
+    const commentsList = document.querySelector(".comments-list");
+    commentsList.innerHTML = ""; // Clear the existing comments
 
-            // Sort comments by upvotes in descending order
-            const sortedComments = commentsData.slice().sort((a, b) => b.upvotes - a.upvotes);
-
-            sortedComments.forEach((comment, index) => {
-                const commentElement = document.createElement("div");
-                commentElement.classList.add("comment");
-
-                const userAction = userActions[comment.title];
-
-                commentElement.innerHTML = `
-                    <div class="comment-card">
-                        <div class="comment-title">${comment.title}</div>
-                        <div class="comment-text">${comment.text}</div>
-                    </div>
-                    <div class="comment-votes">
-                        <span class="upvote" onclick="toggleVote('${comment.title}', 'upvote')"><i class="fas fa-thumbs-up"></i> ${comment.upvotes}</span>
-                        <br />
-                        <br />
-                        <span class="downvote" onclick="toggleVote('${comment.title}', 'downvote')"><i class="fas fa-thumbs-down"></i> ${comment.downvotes}</span>
-                    </div>
-                `;
-
-                commentsList.appendChild(commentElement);
-            });
+    // Sort comments by upvotes in descending order, but place 0 upvotes and 0 downvotes at the top
+    const sortedComments = commentsData.slice().sort((a, b) => {
+        // Custom sorting logic
+        if (a.upvotes === 0 && a.downvotes === 0) {
+            return -1; // Place comments with 0 upvotes and 0 downvotes at the top
+        } else if (b.upvotes === 0 && b.downvotes === 0) {
+            return 1; // Place comments with 0 upvotes and 0 downvotes at the top
+        } else {
+            return b.upvotes - a.upvotes; // Sort by upvotes for other comments
         }
+    });
+
+    sortedComments.forEach((comment, index) => {
+        const commentElement = document.createElement("div");
+        commentElement.classList.add("comment");
+
+        const userAction = userActions[comment.title];
+
+        commentElement.innerHTML = `
+            <div class="comment-card">
+                <div class="comment-title">${comment.title}</div>
+                <div class="comment-text">${comment.text}</div>
+            </div>
+            <div class="comment-votes">
+                <span class="upvote" onclick="toggleVote('${comment.title}', 'upvote')"><i class="fas fa-thumbs-up"></i> ${comment.upvotes}</span>
+                <br />
+                <br />
+                <span class="downvote" onclick="toggleVote('${comment.title}', 'downvote')"><i class="fas fa-thumbs-down"></i> ${comment.downvotes}</span>
+            </div>
+        `;
+
+        commentsList.appendChild(commentElement);
+    });
+}
+
 
         function toggleVote(commentTitle, voteType) {
             const comment = commentsData.find(comment => comment.title === commentTitle);
