@@ -105,31 +105,42 @@ function populateCourseCards() {
 
         const br2 = document.createElement("br"); // Add a line break after the "Top Advice:" title
 
-        const adviceList = document.createElement("ul"); // Use an ordered list for numbered advice
-        advice.forEach((advice, index) => { // Iterate through the advice array
-            const li = document.createElement("li");
-            li.textContent = `${advice}`;
-            adviceList.appendChild(li);
-            li.style.padding = "5px";
-        });
+        const advice1 = document.createElement("li");
+        advice1.textContent = `${advice[0]}`;
+        advice1.classList.add("advice1");
+        advice1.style.padding = "5px";
 
-        // Add padding/margin between advice list items (li elements)
-        
+        const advice2 = document.createElement("li");
+        advice2.textContent = `${advice[1]}`;
+        advice1.classList.add("advice2");
+        advice2.style.padding = "5px";
 
-        const clickForMore = document.createElement("p");
-        clickForMore.textContent = "Click for more →"; // Add "click for more" text with an arrow
-        clickForMore.classList.add("click-for-more"); // Apply styling to the link
+        const advice3 = document.createElement("li");
+        advice3.textContent = `${advice[2]}`;
+        advice1.classList.add("advice3");
+        advice3.style.padding = "5px";
 
         card.appendChild(h2);
         card.appendChild(br1); // Add a line break after the course title
         card.appendChild(adviceTitle); // Add the advice title
         card.appendChild(br2); // Add a line break after the "Top Advice:" title
-        card.appendChild(adviceList);
-        //card.appendChild(clickForMore); // Add "click for more" text
+        card.appendChild(advice1);
+        card.appendChild(advice2);
+        card.appendChild(advice3);
 
-        card.addEventListener("click", () => {
-            // Redirect to adviceSection.html with the course name as a query parameter
-            window.location.href = `adviceSection.html?course=${encodeURIComponent(course)}`;
+        advice1.addEventListener("click", () => {
+            const cla = course + "-" + `${advice[0]}`;
+            window.location.href = `adviceSection.html?course=${encodeURIComponent(cla)}`;
+        });
+
+        advice2.addEventListener("click", () => {
+            const cla = course + "-" + `${advice[1]}`;
+            window.location.href = `adviceSection.html?course=${encodeURIComponent(cla)}`;
+        });
+
+        advice3.addEventListener("click", () => {
+            const cla = course + "-" + `${advice[2]}`;
+            window.location.href = `adviceSection.html?course=${encodeURIComponent(cla)}`;
         });
 
         courseList.appendChild(card);

@@ -67,7 +67,7 @@
         const courseName = getQueryParam("course");
 
         const trendingHeading = document.getElementById("trending_heading");
-        trendingHeading.innerHTML =  courseName.split("-")[0] + "- Semester test advice";
+        trendingHeading.innerHTML =  courseName.split("-")[0] + "- " + courseName.split("-")[2] ; //add title here
 
         // Initialize userActions from local storage or an empty object
         const userActions = localStorage.getItem('userActions') ? JSON.parse(localStorage.getItem('userActions')) : {};
