@@ -67,6 +67,8 @@
            
             // Function to handle user sign-up and data storage
             function signUp() {
+
+               
               
             const username = document.querySelector('.un').value;
             const password = document.querySelector('.pass').value;
@@ -77,6 +79,15 @@
             const yearofstudy = ""; // Add this line
             const modules = [];
 
+            function isValidEmail(email) {
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      return emailRegex.test(email);
+   }
+
+   if (!isValidEmail(username)) {
+         showCustomPopup("Enter a valid email address");
+         return;
+      }
             if (password !== confirmPassword) {
                showCustomPopup("Passwords do not match");
 
