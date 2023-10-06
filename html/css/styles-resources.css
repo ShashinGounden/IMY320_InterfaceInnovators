@@ -104,6 +104,11 @@ img {
   color: var(--text-color);
   column-gap: .5rem;
   font-weight: var(--font-semi-bold);
+  transition: color .4s;
+}
+
+.logo:hover {
+  color: var(--title-color); 
 }
 
 .logo i {
