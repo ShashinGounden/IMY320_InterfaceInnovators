@@ -48,12 +48,14 @@
 }
 
 .comment-form {
+  height: 100%;
+  width:100%;
     margin-bottom: 20px;
 }
 
 textarea#comment-text {
-    width: 500px;
-    height: 300px;
+    width: 345px;
+    height: 120px;
     padding: 10px;
     margin: 10px;
     border: 1px solid #ccc;
@@ -93,17 +95,16 @@ button#submit-comment:hover {
 }
 
 .comment {
-  padding: 10px;
+  padding: 20px;
   margin: 20px 0;
   opacity: 0.90;
   background-color: var(--first-color-alt);
   border-radius: 5px;
-  padding: 20px;
   margin-bottom: 20px; /* Adjust the margin */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s;
   height: auto; /* Adjust height to accommodate content */
-  width: 90%; /* Calculate the width for three cards in a row */
+  width: 80%; /* Calculate the width for three cards in a row */
   color: var(--title-color);
   text-align: center;
   border: none;
@@ -117,16 +118,14 @@ button#submit-comment:hover {
   width: 100%;
 }
 
-.comment:hover{
-transform: scale(1.02);
-}
 
 .comment-title {
   font-weight: bold;
   font-size: 1.2rem;
   margin-bottom: 5px;
-  text-align: center; /* Center-align the comment title */
-  margin-left: 15%;
+  text-align: left; /* Center-align the comment title */
+  margin-left: 5%;
+  width:100%;
   color: var(--second-color);
   
 }
@@ -135,8 +134,8 @@ transform: scale(1.02);
 .comment-text {
   font-size: 1rem;
   margin-bottom: 10px;
-  text-align: center; /* Center-align the comment text */
-  margin-left: 15%;
+  text-align: left; /* Center-align the comment text */
+  margin-left: 5%;
 }
 
 .comment .upvote,
@@ -165,17 +164,12 @@ transform: scale(1.02);
     padding: 20px;
     margin-bottom: 60px; /* Adjust the margin */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
     height: 250px;
     width: calc(33.33% - 30px); /* Calculate the width for three cards in a row */
     color: var(--title-color);
-    text-align: center;
+    text-align: left;
     border: none;
     position: relative;
-}
-
-.course-card:hover{
-    transform: scale(1.05);
 }
 
 .course-list {
@@ -321,8 +315,8 @@ li:hover{
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Center both vertically and horizontally */
-  width: 600px;
-  height: 600px;
+  width: 450px;
+  height: 450px;
   z-index: 100;
   justify-content: center;
   align-items: center;
@@ -335,13 +329,13 @@ li:hover{
   border-radius: 5px;
   background-color: var(--first-color-alt);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  text-align: left;
   position: relative;
-  width: 100%; /* Ensure the content width matches the modal width */
-  height: 95%;
+  width: 90%; /* Ensure the content width matches the modal width */
+  height: 85%;
   animation: slideIn 0.5s ease forwards;
   border-radius: 30px;
-  background-color: rgba(91, 2, 107,0.95);
+  background-color: rgba(98, 0, 116, 0.95);
 }
 
 .close {
