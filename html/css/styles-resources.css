@@ -50,12 +50,12 @@
 }
 
 body {
+  cursor: url('../images/astro.png'), auto;
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
   background-color: var(--body-color);
   color: var(--text-color);
-  cursor: url('./astronaut.png'), auto;
 }
 
 ul {
