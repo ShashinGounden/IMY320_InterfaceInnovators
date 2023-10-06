@@ -33,9 +33,7 @@
   --z-fixed: 100;
 }
 
-body{
-  cursor: url('../images/astro.png'), auto;
-}
+
 
 
 .help-container{
