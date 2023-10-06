@@ -128,6 +128,34 @@
             <button class="profile-button" style="color:white" type="button" onclick="hideModal()">Okay</button>
             </div>
          </div>
+
+         <script>
+      
+            const imagesToMove = document.querySelectorAll('.home_images img');
+          
+            // Function to move images with the cursor
+            function moveImages(event) {
+              imagesToMove.forEach((image, index) => {
+                const moveFactor = (index + 1) * 0.02; // Adjust the movement speed
+                const imageRect = image.getBoundingClientRect();
+                const imageCenterX = imageRect.left + imageRect.width / 2;
+                const imageCenterY = imageRect.top + imageRect.height / 2;
+          
+                const cursorX = event.clientX;
+                const cursorY = event.clientY;
+          
+                const deltaX = cursorX - imageCenterX;
+                const deltaY = cursorY - imageCenterY;
+          
+                const translateX = deltaX * moveFactor + 'px';
+                const translateY = deltaY * moveFactor + 'px';
+          
+                image.style.transform = `translate(${translateX}, ${translateY})`;
+              });
+            }
+          
+            document.addEventListener('mousemove', moveImages);
+          </script>
    </body>
 </html>
 
