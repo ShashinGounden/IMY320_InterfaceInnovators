@@ -55,6 +55,7 @@ body {
   font-weight: var(--font-medium);
   background-color: var(--body-color);
   color: var(--text-color);
+  cursor: url('./astronaut.png'), auto;
 }
 
 ul {
@@ -620,6 +621,39 @@ h3{
   z-index: -1; /* Place behind the container */
   /*transform: translateY(-50%);  Center vertically */
   animation: slideIn 0.5s ease forwards;
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
 }
 
 
