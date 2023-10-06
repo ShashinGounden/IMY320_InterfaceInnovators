@@ -104,6 +104,11 @@ img {
   color: var(--text-color);
   column-gap: .5rem;
   font-weight: var(--font-semi-bold);
+  transition: color .4s;
+}
+
+.logo:hover {
+  color: var(--title-color); 
 }
 
 .logo i {
@@ -245,12 +250,10 @@ img {
 
 .home_button {
   display: inline-block;
-  background: linear-gradient(180deg, 
-              var(--second-color), 
-              var(--second-color-alt));
+  background: linear-gradient(to right, #9C27B0, #E040FB);
+  color:white;
   padding: 1.125rem 3rem;
   border-radius: 4rem;
-  color: var(--title-color);
   font-weight: var(--font-semi-bold);
   box-shadow: 0 8px 32px hsla(268, 58%, 4%, .3), 
               inset 0 4px 8px hsla(0, 0%, 100%, .4);
