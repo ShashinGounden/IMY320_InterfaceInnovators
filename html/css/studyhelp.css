@@ -126,12 +126,13 @@ button#submit-comment:hover {
   text-align: left; /* Center-align the comment title */
   margin-left: 5%;
   width:100%;
-  color: var(--second-color);
+  color: #ff02d5;
   
 }
 
 .data-course{
   text-align: center;
+  color: #ff02d5;
 }
 
 .comment-text {
