@@ -94,12 +94,13 @@ function populateCourseCards() {
         card.setAttribute("data-course", course);
         console.log(course);
         const h2 = document.createElement("h2");
+        h2.classList.add("data-course");
         h2.textContent = course.split("-")[0];
 
         const br1 = document.createElement("br"); // Add a line break after the course title
 
         const adviceTitle = document.createElement("p");
-        adviceTitle.textContent = "Trending Advice:";
+        adviceTitle.textContent = "Advice topics:";
         adviceTitle.classList.add("advice-title"); // Add a class for styling
 
         const br2 = document.createElement("br"); // Add a line break after the "Top Advice:" title
@@ -107,7 +108,7 @@ function populateCourseCards() {
         const adviceList = document.createElement("ul"); // Use an ordered list for numbered advice
         advice.forEach((advice, index) => { // Iterate through the advice array
             const li = document.createElement("li");
-            li.textContent = `${index + 1}. ${advice}`;
+            li.textContent = `${advice}`;
             adviceList.appendChild(li);
             li.style.padding = "5px";
         });

@@ -130,6 +130,9 @@ button#submit-comment:hover {
   
 }
 
+.data-course{
+  text-align: center;
+}
 
 .comment-text {
   font-size: 1rem;
