@@ -52,6 +52,7 @@
 
     <script>
 
+        let commentsData = [];
         
         // JavaScript for interacting with comments
         function getQueryParam(parameterName) {
@@ -74,47 +75,63 @@
         }
 
         // Dummy data for comments (replace with your own logic to fetch comments from a server)
-        const ChaptersToSkip = [
-            { text: "Learn how to effectively manage your study time for maximum productivity", title: "Time Management" },
-            { text: "Discover different note-taking techniques to capture key information during lectures and reading.", title: "Note-Taking Strategies" },
-            { text: "Get tips on how to prepare and excel in exams through smart study techniques.", title: "Test Preparation" },
-            { text: "Manage study-related stress and maintain a healthy work-life balance..", title: "Stress Management" },
-            { text: "Enhance your reading skills to comprehend and retain information more efficiently.", title: "Effective Reading" },
-            { text: "Develop research skills to find reliable sources and gather information for assignments.", title: "Research Skills" },
-            { text: "Discover techniques to stay motivated and overcome procrastination in your studies.", title: "Motivation Boost" },
-            { text: "Explore the benefits of joining study groups and collaborating with classmates.", title: "Study Groups" },
-        ];
+        const GeneralTips = [
+        { text: "Master the art of effective time management to maximize productivity and create a well-organized study routine.", title: "Time Management" },
+        { text: "Explore a variety of note-taking techniques tailored to different learning styles, ensuring comprehensive understanding during lectures and reading sessions.", title: "Note-Taking Strategies" },
+        { text: "Acquire valuable tips and strategies to prepare for exams systematically, enhancing your confidence and performance on test day.", title: "Test Preparation" },
+        { text: "Develop stress management techniques to navigate the challenges of academia while maintaining a healthy work-life balance for overall well-being.", title: "Stress Management" },
+        { text: "Hone your reading skills to comprehend complex materials effectively, enabling efficient information retention and deeper understanding of the subject matter.", title: "Effective Reading" },
+        { text: "Cultivate strong research skills to locate credible sources, critically analyze information, and synthesize knowledge for assignments and projects.", title: "Research Skills" },
+        { text: "Discover motivation-boosting techniques and effective strategies to overcome procrastination, ensuring consistent progress in your studies.", title: "Motivation Boost" },
+        { text: "Harness the benefits of study groups and collaborative learning by engaging with peers, sharing knowledge, and gaining diverse perspectives for enriched learning experiences.", title: "Study Groups" },
+    ];
+
 
         const ImportantChapters = [
-            { text: "", title: "Chapter 3" },
-            { text: "", title: "Chapter 9" },
-            { text: "", title: "Chapter 14" },
-            { text: "", title: "Chapter 7" },
-            { text: "", title: "Chapter 12" },
-            { text: "", title: "Chapter 18" },
-            { text: "", title: "Chapter 22" },
-            { text: "", title: "Chapter 5" },
-        ];
+        { text: "This chapter really helps with understanding the foundational concepts of the module, setting the stage for more advanced topics later on.", title: "Chapter 3" },
+        { text: "Focus on sections 9.5 and 9.8 as they delve into the critical aspects of the history of formal systems, providing key insights that are often examined in assessments.", title: "Chapter 9" },
+        { text: "Mastering the content of this chapter is essential for acing the exam. Pay close attention to the theories and applications discussed; they are likely to be significant in the test.", title: "Chapter 14" },
+        { text: "Chapter 7 serves as a fundamental building block for later topics. Ensure a solid grasp of the concepts here, as they form the basis for more advanced discussions in the module.", title: "Chapter 7" },
+        { text: "In Chapter 12, you'll encounter advanced theories crucial for understanding complex phenomena in the subject. Devote ample time to comprehending the intricacies presented; they often have practical applications in the field.", title: "Chapter 12" },
+        { text: "Chapter 18 explores research methodologies vital for your academic and professional growth. Master the techniques outlined here to conduct meaningful research and contribute valuable insights to the subject.", title: "Chapter 18" },
+        { text: "Chapter 22 delves into ethical considerations and societal impacts within the subject. Understanding the ethical implications is essential for responsible decision-making and ensuring your contributions have a positive influence on society.", title: "Chapter 22" },
+        { text: "Collaboration and teamwork are central themes in Chapter 5. Engage actively with the content as it provides valuable insights into effective group dynamics, enhancing your ability to collaborate efficiently with peers.", title: "Chapter 5" },
+    ];
 
-        const SemesterTest = [
-            { text: "Learn how to effectively manage your study time for maximum productivity", title: "Time Management" },
-            { text: "Discover different note-taking techniques to capture key information during lectures and reading.", title: "Note-Taking Strategies" },
-            { text: "Get tips on how to prepare and excel in exams through smart study techniques.", title: "Test Preparation" },
-            { text: "Manage study-related stress and maintain a healthy work-life balance..", title: "Stress Management" },
-            { text: "Enhance your reading skills to comprehend and retain information more efficiently.", title: "Effective Reading" },
-            { text: "Develop research skills to find reliable sources and gather information for assignments.", title: "Research Skills" },
-            { text: "Discover techniques to stay motivated and overcome procrastination in your studies.", title: "Motivation Boost" },
-            { text: "Explore the benefits of joining study groups and collaborating with classmates.", title: "Study Groups" },
-        ];
 
-        // Generate random upvotes and downvotes for each comment
+
+    const RandomTip = [
+        { text: "Flashcards are your best friend for acing those quizzes! Use them to nail down key concepts.", title: "Study Smarter, Not Harder" },
+        { text: "Don't stress about schedules; just find a routine that works for you. Consistency is the real MVP.", title: "Chill Study Routines" },
+        { text: "Keep your stuff together, but don't go crazy with color-coded folders. A little mess won't hurt!", title: "Stay (Organized) Cool" },
+        { text: "Google is your research buddy. Dive into online resources for top-notch info without leaving your couch.", title: "Lazy Genius Research" },
+        { text: "Ever heard of active listening? It's basically nodding along and absorbing wisdom. Try it in class!", title: "Listening Hacks 101" },
+        { text: "Join clubs not just for resume boosts, but for the cool people and awesome adventures. It's like joining a rad gang.", title: "Clubbin' Life" },
+        { text: "Raise your hand in class and speak your mind. It's like being a boss in a room full of thinkers.", title: "Confidence is Key" },
+        { text: "Study breaks are mandatory, my friend. Netflix, snacks, or a quick nap - whatever floats your boat!", title: "Breaks: The Secret Sauce" },
+    ];
+
+
+        // Generate random upvotes and downvotes for each comment ******this here******
+
+        console.log(courseName.split("-")[2]);
+        if(courseName.split("-")[2] == "Important chapters"){
+            commentsData = ImportantChapters;
+        }
+        else if(courseName.split("-")[2] == "General Tips"){
+            commentsData = GeneralTips;
+        }
+        else if(courseName.split("-")[2] == "Random"){
+            commentsData = RandomTip;
+        }
+
         commentsData.forEach(comment => {
-            comment.upvotes = getRandomNumber(1, 20); // Generate a random number between 1 and 10 for upvotes
-            comment.downvotes = getRandomNumber(1, 10); // Generate a random number between 1 and 5 for downvotes
+        comment.upvotes = getRandomNumber(1, 20); // Generate a random number between 1 and 10 for upvotes
+        comment.downvotes = getRandomNumber(1, 10); // Generate a random number between 1 and 5 for downvotes
         });
 
 
-        function renderComments() {
+    function renderComments() {
     const commentsList = document.querySelector(".comments-list");
     commentsList.innerHTML = ""; // Clear the existing comments
 
