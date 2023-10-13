@@ -58,7 +58,7 @@
 
     <script>
         // Mock course data
-        const advice = ["Exam chapters to skip", "Semester Test focus", "Unimportant chapters"]  ;
+        const advice = ["Important chapters", "Semester Test focus", "Exam chapters to skip", "Random"]  ;
 
         // Function to create and populate course cards
        // Function to create and populate course cards
@@ -120,6 +120,11 @@ function populateCourseCards() {
         advice1.classList.add("advice3");
         advice3.style.padding = "5px";
 
+        const advice4 = document.createElement("li");
+        advice4.textContent = `${advice[3]}`;
+        advice1.classList.add("advice4");
+        advice4.style.padding = "5px";
+
         card.appendChild(h2);
         card.appendChild(br1); // Add a line break after the course title
         card.appendChild(adviceTitle); // Add the advice title
@@ -127,6 +132,7 @@ function populateCourseCards() {
         card.appendChild(advice1);
         card.appendChild(advice2);
         card.appendChild(advice3);
+        card.appendChild(advice4);
 
         advice1.addEventListener("click", () => {
             const cla = course + "-" + `${advice[0]}`;
@@ -140,6 +146,10 @@ function populateCourseCards() {
 
         advice3.addEventListener("click", () => {
             const cla = course + "-" + `${advice[2]}`;
+            window.location.href = `adviceSection.html?course=${encodeURIComponent(cla)}`;
+        });
+        advice4.addEventListener("click", () => {
+            const cla = course + "-" + `${advice[3]}`;
             window.location.href = `adviceSection.html?course=${encodeURIComponent(cla)}`;
         });
 
